@@ -496,6 +496,71 @@ h4 {
   line-height: 1.35;
 }
 
+.limitations-card {
+  margin-top: 18px;
+  padding: 24px;
+}
+
+.limitations-copy {
+  max-width: 850px;
+}
+
+.limitations-copy h3 {
+  max-width: 680px;
+}
+
+.limitations-copy p:last-child {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.limitations-table-wrap {
+  margin-top: 22px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.limitations-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.limitations-table th,
+.limitations-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.limitations-table tr:last-child th,
+.limitations-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.limitations-table thead th {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.limitations-table tbody th {
+  width: 230px;
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.limitations-table td {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
 .lab-shell {
   min-width: 0;
   margin-top: 18px;
@@ -1142,6 +1207,7 @@ h4 {
 .benchmark-panel,
 .featured-benchmark,
 .methodology-card,
+.limitations-card,
 .lab-shell,
 .replay-panel,
 .bottleneck-card {
@@ -1695,6 +1761,7 @@ h4 {
   .focus-card,
   .featured-benchmark,
   .methodology-card,
+  .limitations-card,
   .lab-shell,
   .indian-ai-note,
   .replay-panel,
@@ -1845,6 +1912,49 @@ h4 {
   .language-metric-cell div {
     grid-template-columns: 1fr;
     gap: 3px;
+  }
+
+  .limitations-table-wrap {
+    overflow-x: visible;
+  }
+
+  .limitations-table,
+  .limitations-table thead,
+  .limitations-table tbody,
+  .limitations-table tr,
+  .limitations-table th,
+  .limitations-table td {
+    display: block;
+    min-width: 0;
+  }
+
+  .limitations-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .limitations-table tbody tr {
+    padding: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .limitations-table tbody tr:last-child {
+    border-bottom: 0;
+  }
+
+  .limitations-table th,
+  .limitations-table td {
+    padding: 0;
+    border-bottom: 0;
+  }
+
+  .limitations-table tbody th {
+    width: auto;
+    margin-bottom: 8px;
   }
 
   .chat-fab {

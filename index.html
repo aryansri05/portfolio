@@ -153,6 +153,65 @@
           </dl>
         </article>
 
+        <article class="limitations-card reveal">
+          <div class="limitations-copy">
+            <p class="company">Benchmark Limitations</p>
+            <h3>External experimental study, not a production-performance claim.</h3>
+            <p>
+              This benchmark should be treated as an external experimental study,
+              not a claim about Sarvam's internal production performance.
+            </p>
+          </div>
+          <div class="limitations-table-wrap">
+            <table class="limitations-table">
+              <thead>
+                <tr>
+                  <th>Limitation</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Not Sarvam's production stack</th>
+                  <td>The benchmark was run on an external RunPod/SGLang setup, not Sarvam's internal production serving infrastructure.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Single H100 setup</th>
+                  <td>The main measured run used one H100 SXM 80GB GPU, not a multi-GPU production deployment.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Single concurrency</th>
+                  <td>Requests were sent one at a time. The benchmark does not evaluate batching, real traffic load, queueing behavior, or mixed prefill/decode scheduling under concurrency.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Small prompt suite</th>
+                  <td>The prompt suite contained 48 prompts: 12 English, 12 Hindi, 12 Tamil, and 12 Hinglish/code-mixed prompts. This is useful for a pilot benchmark, but not enough for broad statistical claims.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Short-context workload</th>
+                  <td>Prompts were mostly short conversational inputs. Long-context workloads were not tested.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Client-side timing</th>
+                  <td>Latency was measured from the benchmark client. The current setup does not fully isolate tokenizer time, queue time, prefill time, decode time, network overhead, and server-side scheduling.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Runtime not fully optimized</th>
+                  <td>CUDA Graphs were disabled, so the benchmark should be treated as a conservative baseline rather than a fully production-tuned serving run.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Qwen comparison caveat</th>
+                  <td>The Qwen comparison required Triton fallback FP8/MoE kernels after DeepGEMM/CUDA Graph issues, so Qwen was not running in its most optimized configuration.</td>
+                </tr>
+                <tr>
+                  <th scope="row">No hosted API comparison</th>
+                  <td>The benchmark does not compare against Sarvam's hosted API latency, so it should not be interpreted as a product latency claim.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
         <div class="lab-shell reveal" data-inference-lab>
           <div class="lab-toolbar">
             <div>

@@ -67,6 +67,22 @@ LLM Inference Benchmarking | Sarvam 30B FP8:
 - Analyzed deployment tradeoffs across high-end data center GPUs, budget GPUs,
   and consumer Apple Silicon environments.
 
+Benchmark limitations:
+
+- External experimental study, not a claim about Sarvam internal production
+  performance.
+- Run on external RunPod/SGLang infrastructure, not Sarvam's production stack.
+- Main measured run used one H100 SXM 80GB GPU with single concurrency.
+- Prompt suite contained 48 short-context prompts across English, Hindi, Tamil,
+  and Hinglish/code-mixed prompts.
+- Client-side timing does not fully isolate tokenizer time, queue time, prefill,
+  decode, network overhead, or server-side scheduling.
+- CUDA Graphs were disabled, making this a conservative baseline rather than a
+  fully production-tuned serving run.
+- Qwen comparison used Triton fallback FP8/MoE kernels after DeepGEMM/CUDA Graph
+  issues, so it was not running in its most optimized configuration.
+- No hosted Sarvam API comparison is included.
+
 Paper Trading Platform:
 
 - Full-stack options trading simulator.

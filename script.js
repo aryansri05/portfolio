@@ -152,7 +152,7 @@ function answerQuestion(question) {
   }
 
   if (hasAny(q, ["limitation", "limitations", "caveat", "caveats", "not measured", "missing"])) {
-    return "Limitations: the H100 run is a preliminary single-H100 SGLang pilot, T4 uses median/P95 aggregate data rather than raw per-request mean latency, and Apple M2 values are placeholders until exported results are added.";
+    return "Limitations: this is an external RunPod/SGLang study, not Sarvam production performance. It used one H100 SXM, single concurrency, a 48-prompt short-context suite, client-side timing, and no hosted API comparison; concurrency, batching, and deeper TTFT/server-side profiling are planned.";
   }
 
   if (hasAny(q, ["input token", "output token", "tokens matter", "token budget"])) {
