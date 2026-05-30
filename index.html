@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Aryan Srivastava is a Computer Science student building CUDA-adjacent GPU systems, LLM inference benchmarks, backend infrastructure, and production-grade open source."
+    >
+    <meta name="theme-color" content="#f8f9fb">
+    <title>Aryan Srivastava | GPU Systems & AI Infrastructure</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script src="benchmark-data.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="Aryan Srivastava home">
+          <span class="brand-mark">AS</span>
+          <span>Aryan Srivastava</span>
+        </a>
+        <div class="nav-links">
+          <a href="#inference-lab">Lab</a>
+          <a href="#work">Work</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="top" class="hero section">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Bengaluru, India</p>
+          <h1>Aryan Srivastava</h1>
+          <p class="hero-title">
+            Computer Science Student | GPU Systems & AI Infrastructure Developer | Open Source Contributor
+          </p>
+          <p class="hero-intro">
+            Second-year CS student focused on CUDA-adjacent systems, GPU dataframe
+            internals, LLM inference benchmarking, and backend infrastructure. Active
+            open-source contributor to NVIDIA RAPIDS cuDF and Polars.
+          </p>
+
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button button-primary" href="#inference-lab">Open Inference Lab</a>
+            <a class="button" href="resume/Aryan_Srivastava_Resume.pdf" download>Download Resume</a>
+            <button class="button" type="button" data-open-chat>Ask Aryan AI</button>
+            <a class="button button-ghost" href="#contact">Contact Me</a>
+          </div>
+
+          <div class="social-links" aria-label="Social links">
+            <a href="https://github.com/aryansri05" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/aryan-srivastava-821782333/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="mailto:aryansriva05@gmail.com">aryansriva05@gmail.com</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel reveal" aria-label="Aryan profile highlights">
+          <img class="systems-map" src="assets/systems-map.svg" alt="GPU execution pipeline diagram">
+          <div class="metric-grid">
+            <div>
+              <span class="metric-value">5</span>
+              <span class="metric-label">Total merged PRs</span>
+            </div>
+            <div>
+              <span class="metric-value">1st</span>
+              <span class="metric-label">MAHE AI Track</span>
+            </div>
+            <div>
+              <span class="metric-value">2028</span>
+              <span class="metric-label">Expected graduation</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="inference-lab" class="section inference-lab">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Inference Lab</p>
+          <h2>A working AI infrastructure benchmark lab for Sarvam inference.</h2>
+        </div>
+
+        <article class="featured-benchmark reveal">
+          <div>
+            <p class="company">Featured Project</p>
+            <h3>Sarvam 30B FP8 Inference Benchmarking</h3>
+            <p>
+              Benchmarked Sarvam 30B FP8 across H100 SXM, NVIDIA T4, and Apple M2,
+              measuring mean latency, P90/P95 latency, tokenization behavior, and
+              throughput trends to analyze deployment tradeoffs across hardware tiers.
+            </p>
+            <div class="featured-actions">
+              <a class="button button-primary" href="https://github.com/aryansri05/indicservebench" target="_blank" rel="noreferrer">
+                View indicservebench
+              </a>
+              <button class="button" type="button" data-open-chat>Ask about benchmark</button>
+            </div>
+          </div>
+          <div class="featured-stats" aria-label="Featured benchmark stats">
+            <div>
+              <strong data-lab-stat="requestCount">240</strong>
+              <span>requests</span>
+            </div>
+            <div>
+              <strong data-lab-stat="meanLatency">890 ms</strong>
+              <span>mean latency</span>
+            </div>
+            <div>
+              <strong data-lab-stat="tokensPerSecond">36.0</strong>
+              <span>tokens/sec</span>
+            </div>
+          </div>
+        </article>
+
+        <div class="lab-shell reveal" data-inference-lab>
+          <div class="lab-toolbar">
+            <div>
+              <span class="control-label">Hardware</span>
+              <div class="segmented-control" data-hardware-options></div>
+            </div>
+            <div>
+              <span class="control-label">Prompt length</span>
+              <div class="segmented-control" data-profile-options></div>
+            </div>
+          </div>
+
+          <div class="token-controls">
+            <label>
+              <span>Input tokens</span>
+              <input type="range" min="16" max="160" step="1" value="67" data-input-tokens>
+              <strong data-input-token-value>67</strong>
+            </label>
+            <label>
+              <span>Output tokens</span>
+              <input type="range" min="16" max="160" step="1" value="32" data-output-tokens>
+              <strong data-output-token-value>32</strong>
+            </label>
+          </div>
+
+          <div class="lab-metrics" aria-label="Selected benchmark metrics">
+            <article>
+              <span>Mean latency</span>
+              <strong data-metric="meanLatency">890 ms</strong>
+            </article>
+            <article>
+              <span>P90 latency</span>
+              <strong data-metric="p90Latency">897 ms</strong>
+            </article>
+            <article>
+              <span>P95 latency</span>
+              <strong data-metric="p95Latency">900 ms</strong>
+            </article>
+            <article>
+              <span>Tokens/sec</span>
+              <strong data-metric="tokensPerSecond">36.0</strong>
+            </article>
+            <article>
+              <span>Cost / 1M output tokens</span>
+              <strong data-metric="costPerMillion">$23.13</strong>
+            </article>
+          </div>
+
+          <div class="lab-context-grid" aria-label="Benchmark context">
+            <article>
+              <span>Hardware used</span>
+              <strong data-context="hardware">H100 SXM</strong>
+            </article>
+            <article>
+              <span>Token budget</span>
+              <strong data-context="tokens">67 in / 32 out</strong>
+            </article>
+            <article>
+              <span>Tokenizer behavior</span>
+              <strong data-context="tokenizer">Formatted prompt expansion measured</strong>
+            </article>
+            <article>
+              <span>Deployment tradeoff</span>
+              <strong data-context="tradeoff">High-throughput FP8 serving</strong>
+            </article>
+          </div>
+
+          <div class="lab-charts">
+            <article class="chart-card">
+              <div>
+                <h3>Latency vs output tokens</h3>
+                <p>Estimated serving curve for the selected hardware.</p>
+              </div>
+              <div class="line-chart" data-chart="latency-output"></div>
+            </article>
+            <article class="chart-card">
+              <div>
+                <h3>Hardware comparison</h3>
+                <p>Mean latency at the selected token budget.</p>
+              </div>
+              <div class="bar-chart" data-chart="hardware-latency"></div>
+            </article>
+            <article class="chart-card">
+              <div>
+                <h3>P95 vs mean latency</h3>
+                <p>Tail latency awareness for production serving.</p>
+              </div>
+              <div class="bar-chart" data-chart="tail-latency"></div>
+            </article>
+            <article class="chart-card">
+              <div>
+                <h3>Tokens/sec by hardware</h3>
+                <p>Throughput signal across hardware tiers.</p>
+              </div>
+              <div class="bar-chart" data-chart="throughput"></div>
+            </article>
+            <article class="chart-card chart-card-wide">
+              <div>
+                <h3>Cost per 1M output tokens</h3>
+                <p>Single-stream estimate combining business and engineering tradeoffs.</p>
+              </div>
+              <div class="bar-chart" data-chart="cost"></div>
+            </article>
+          </div>
+
+          <article class="language-latency-card">
+            <div class="language-latency-header">
+              <div>
+                <h3>Mean / P95 latency by language</h3>
+                <p>
+                  Side-by-side language view for H100 SXM, T4, and Apple M2 benchmark coverage.
+                </p>
+              </div>
+              <span class="source-tag">language summary</span>
+            </div>
+            <div class="language-latency" data-language-latency></div>
+            <p class="language-note" data-language-note></p>
+          </article>
+
+          <div class="lab-note" data-lab-note>
+            H100 uses measured Sarvam 30B FP8 data. T4 and M2 are replaceable baselines/placeholders.
+          </div>
+        </div>
+
+        <div class="replay-panel reveal">
+          <div class="replay-copy">
+            <p class="eyebrow">Benchmark Replay</p>
+            <h3>Prompt to latency, replayed like a serving trace.</h3>
+            <p>
+              Watch a single inference request move from prompt intake through tokenization,
+              prefill, decode, output generation, and latency recording.
+            </p>
+            <button class="button button-primary" type="button" data-replay-button>Replay request</button>
+          </div>
+          <div>
+            <div class="replay-flow" data-replay-flow></div>
+            <div class="replay-readout">
+              <div>
+                <span>Hardware</span>
+                <strong data-replay="hardware">H100 SXM</strong>
+              </div>
+              <div>
+                <span>Input tokens</span>
+                <strong data-replay="inputTokens">67</strong>
+              </div>
+              <div>
+                <span>Output tokens</span>
+                <strong data-replay="outputTokens">32</strong>
+              </div>
+              <div>
+                <span>Latency</span>
+                <strong data-replay="latency">890 ms</strong>
+              </div>
+              <div class="readout-wide">
+                <span>Estimated bottleneck</span>
+                <strong data-replay="bottleneck">Decode bottleneck likely low.</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottleneck-grid reveal" data-bottleneck-grid></div>
+      </section>
+
+      <section id="gpu" class="section gpu-focus">
+        <div class="section-heading reveal">
+          <p class="eyebrow">GPU Systems Focus</p>
+          <h2>Performance work across GPU dataframes, inference serving, and systems code.</h2>
+        </div>
+
+        <div class="gpu-layout">
+          <div class="gpu-stack reveal">
+            <article class="focus-card">
+              <span class="focus-index">01</span>
+              <h3>RAPIDS cuDF Internals</h3>
+              <p>
+                Works around GPU dataframe behavior, Python/C++ interop, row-mask APIs,
+                null handling, and regression coverage in production C++/Python codepaths.
+              </p>
+            </article>
+
+            <article class="focus-card">
+              <span class="focus-index">02</span>
+              <h3>LLM Inference Benchmarking</h3>
+              <p>
+                Benchmarked Sarvam 30B FP8 across H100 SXM, T4, and Apple M2 to compare
+                latency, tokenization behavior, throughput trends, and serving tradeoffs.
+              </p>
+            </article>
+
+            <article class="focus-card">
+              <span class="focus-index">03</span>
+              <h3>Memory-Safe Systems Work</h3>
+              <p>
+                Shipped a Rust allocation-provenance fix in Polars and keeps implementation
+                details tied to tests, correctness, and real behavior.
+              </p>
+            </article>
+          </div>
+
+          <div class="benchmark-panel reveal">
+            <div class="code-strip" aria-label="GPU execution pipeline">
+              <span>host</span>
+              <span>h2d</span>
+              <span>kernel</span>
+              <span>device memory</span>
+              <span>throughput</span>
+            </div>
+            <table class="benchmark-table">
+              <caption>Benchmark lens</caption>
+              <thead>
+                <tr>
+                  <th>Hardware</th>
+                  <th>Tier</th>
+                  <th>Measured</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>NVIDIA H100 SXM</td>
+                  <td>Data center</td>
+                  <td>Latency, P90/P95, throughput</td>
+                </tr>
+                <tr>
+                  <td>NVIDIA T4</td>
+                  <td>Budget GPU</td>
+                  <td>Serving limits and tradeoffs</td>
+                </tr>
+                <tr>
+                  <td>Apple M2</td>
+                  <td>Consumer silicon</td>
+                  <td>Local inference behavior</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section split">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Profile</p>
+          <h2>Systems-minded, performance-oriented, still early enough to move fast.</h2>
+        </div>
+        <div class="section-body reveal">
+          <p>
+            Aryan is a second-year Computer Science student at Manipal Institute of
+            Technology, Bengaluru, with hands-on experience in GPU-accelerated computing,
+            LLM inference benchmarking, backend systems, and production-grade open-source
+            development. He contributes to large C++/Python and Rust codebases, writes
+            tests, fixes behavioral inconsistencies, and works across backend, AI, and HPC
+            systems.
+          </p>
+        </div>
+      </section>
+
+      <section id="work" class="section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Open Source</p>
+          <h2>Contributions to technical codebases with real user-facing behavior.</h2>
+        </div>
+
+        <div class="contribution-list">
+          <article class="contribution reveal">
+            <div class="contribution-header">
+              <div>
+                <p class="company">NVIDIA RAPIDS</p>
+                <h3>cuDF</h3>
+              </div>
+              <span class="pill">Merged</span>
+            </div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <span class="timeline-marker"></span>
+                <div>
+                  <h4>PR #20747: Boolean Casting Consistency Fix</h4>
+                  <p>Fixed behavioral inconsistency between cuDF and Pandas.</p>
+                  <p>Modified Python/C++ interop logic and added regression tests.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-marker"></span>
+                <div>
+                  <h4>PR #20862: Hybrid Scan API</h4>
+                  <p>Added a hybrid scan API in libcudf C++ for all-true row masks.</p>
+                  <p>Implemented memory-safe null handling and unit tests.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="contribution reveal">
+            <div class="contribution-header">
+              <div>
+                <p class="company">Polars</p>
+                <h3>High-Performance DataFrame Library</h3>
+              </div>
+              <span class="pill">Merged</span>
+            </div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <span class="timeline-marker"></span>
+                <div>
+                  <h4>
+                    <a href="https://github.com/pola-rs/polars/pull/27669#event-25757194234" target="_blank" rel="noreferrer">
+                      PR #27669: FixedRingBuffer Allocation Provenance
+                    </a>
+                  </h4>
+                  <p>Fixed a Rust allocation-provenance soundness issue in polars-utils.</p>
+                  <p>Preserved the original Vec allocation for memory-safe deallocation.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Projects</p>
+          <h2>Applied systems work across GPU benchmarking, backend pipelines, and trading infrastructure.</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <div class="project-top">
+              <span class="pill">1st Place, AI Track</span>
+              <span>2026</span>
+            </div>
+            <h3>MAHE Mobility Challenge 2026</h3>
+            <p class="project-role">Backend Architect</p>
+            <p>
+              Built an intelligent notification management pipeline for connected vehicles,
+              organized by HARMAN India and CoE in Autonomous Mobility.
+            </p>
+            <ul>
+              <li>Integrated a local Phi-3 model for edge alert classification.</li>
+              <li>Built a Node.js/WebSocket priority triage engine.</li>
+              <li>Added a real-time network heatmap and AI-generated recovery summaries.</li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <span class="pill pill-muted">Benchmarking</span>
+              <span>LLM inference</span>
+            </div>
+            <h3>LLM Inference Benchmarking | Sarvam 30B FP8</h3>
+            <p>
+              Benchmarked Sarvam 30B FP8 across NVIDIA H100 SXM, NVIDIA T4,
+              and Apple M2 to evaluate inference performance across hardware tiers.
+            </p>
+            <ul>
+              <li>Measured mean latency, P90/P95 latency, tokenization behavior, and throughput trends.</li>
+              <li>Built a reproducible GitHub benchmark setup with documented methodology.</li>
+              <li>Analyzed deployment tradeoffs across data center GPUs, budget GPUs, and Apple Silicon.</li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <span class="pill pill-quiet">Full stack</span>
+              <span>Trading</span>
+            </div>
+            <h3>Paper Trading Platform</h3>
+            <p>
+              Full-stack options trading simulator supporting calls, puts, portfolio
+              tracking, JWT authentication, and real-time market data.
+            </p>
+            <ul>
+              <li>React frontend with Node.js and Express backend.</li>
+              <li>PostgreSQL database for positions and portfolio state.</li>
+              <li>Built for realistic options workflows without live capital risk.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="section split">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Skills</p>
+          <h2>A compact stack for AI systems, backend work, and GPU/HPC development.</h2>
+        </div>
+        <div class="skills-grid reveal">
+          <div class="skill-group">
+            <h3>Languages</h3>
+            <p>Python, C++, JavaScript, SQL, Bash</p>
+          </div>
+          <div class="skill-group">
+            <h3>AI / ML</h3>
+            <p>LangGraph, FastMCP, ChromaDB, Ollama, Llama 3, RAG, LLM agents</p>
+          </div>
+          <div class="skill-group">
+            <h3>HPC / GPU</h3>
+            <p>CUDA, cuDF, RAPIDS AI, Apple Silicon unified memory, SLURM</p>
+          </div>
+          <div class="skill-group">
+            <h3>Frameworks</h3>
+            <p>React.js, Node.js, Express, Pandas, NumPy, Pytest</p>
+          </div>
+          <div class="skill-group">
+            <h3>Tools</h3>
+            <p>Git, GitHub Actions, Docker, CI/CD, PostgreSQL, GraphQL, VS Code</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section two-column">
+        <article class="info-block reveal">
+          <p class="eyebrow">Education</p>
+          <h2>Manipal Institute of Technology, Bengaluru</h2>
+          <p>B.Tech in Computer Science and Engineering</p>
+          <p>Expected January 2028</p>
+        </article>
+
+        <article class="info-block reveal">
+          <p class="eyebrow">Achievements</p>
+          <ul class="achievement-list">
+            <li>1st Place, MAHE Mobility Challenge 2026, AI Track</li>
+            <li>5 total merged open-source PRs</li>
+            <li>Merged Rust memory-safety fix in Polars</li>
+            <li>Experience navigating large C++/Python production codebases</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="contact-panel reveal">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2>Recruiter-friendly, direct, and focused on systems work.</h2>
+            <p>
+              Aryan is interested in internships and collaborative work across backend
+              infrastructure, AI agents, GPU-accelerated computing, and open-source systems.
+            </p>
+          </div>
+          <div class="contact-actions">
+            <a class="contact-link" href="mailto:aryansriva05@gmail.com">
+              <span>Email</span>
+              <strong>aryansriva05@gmail.com</strong>
+            </a>
+            <a class="contact-link" href="https://github.com/aryansri05" target="_blank" rel="noreferrer">
+              <span>GitHub</span>
+              <strong>github.com/aryansri05</strong>
+            </a>
+            <a class="contact-link" href="https://www.linkedin.com/in/aryan-srivastava-821782333/" target="_blank" rel="noreferrer">
+              <span>LinkedIn</span>
+              <strong>aryan-srivastava-821782333</strong>
+            </a>
+            <a class="button button-primary" href="resume/Aryan_Srivastava_Resume.pdf" download>Download Resume</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button class="chat-fab" type="button" data-chat-toggle aria-label="Open Ask Aryan AI">
+      Ask Aryan AI
+    </button>
+
+    <section class="chat-widget" data-chat-widget aria-label="Ask Aryan AI" aria-hidden="true">
+      <div class="chat-header">
+        <div>
+          <p class="eyebrow">Ask Aryan AI</p>
+          <h2>Aryan knowledge base</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-chat aria-label="Close Ask Aryan AI">×</button>
+      </div>
+      <div class="chat-messages" data-chat-messages aria-live="polite">
+        <div class="message message-bot">
+          Hi, I'm Aryan's portfolio assistant.
+        </div>
+      </div>
+      <div class="prompt-chips" aria-label="Example questions">
+        <button type="button" data-question="What did Aryan benchmark?">Benchmark</button>
+        <button type="button" data-question="What open-source work has Aryan done?">Open source</button>
+        <button type="button" data-question="What projects has Aryan built?">Projects</button>
+        <button type="button" data-question="What are Aryan's main skills?">Skills</button>
+      </div>
+      <form class="chat-form" data-chat-form>
+        <label class="visually-hidden" for="chat-input">Ask Aryan AI</label>
+        <input id="chat-input" data-chat-input autocomplete="off" placeholder="Ask about Aryan..." maxlength="180">
+        <button class="button button-primary" type="submit">Send</button>
+      </form>
+    </section>
+  </body>
+</html>

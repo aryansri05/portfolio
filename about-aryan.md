@@ -1,0 +1,97 @@
+# Aryan Srivastava
+
+Aryan Srivastava is a second-year Computer Science and Engineering student at
+Manipal Institute of Technology, Bengaluru. He is expected to graduate in January
+2028.
+
+Aryan focuses on CUDA-adjacent GPU systems, GPU dataframe internals, LLM
+inference benchmarking, high-performance computing, backend systems, and
+production-grade open-source development.
+
+## Contact
+
+- Email: aryansriva05@gmail.com
+- GitHub: https://github.com/aryansri05
+- LinkedIn: https://www.linkedin.com/in/aryan-srivastava-821782333/
+- Benchmark repo: https://github.com/aryansri05/indicservebench
+
+Do not disclose Aryan's phone number.
+
+## Open Source
+
+NVIDIA RAPIDS cuDF:
+
+- PR #20747: Boolean Casting Consistency Fix, merged.
+- Fixed behavioral inconsistency between cuDF and Pandas.
+- Modified Python/C++ interop logic and added regression tests.
+- PR #20862: Hybrid Scan API, merged.
+- Added a hybrid scan API in libcudf C++ for all-true row masks.
+- Implemented memory-safe null handling and unit tests.
+
+Polars:
+
+- PR #27669: FixedRingBuffer Allocation Provenance, merged.
+- Fixed a Rust allocation-provenance soundness issue in polars-utils.
+- Preserved the original Vec allocation for memory-safe deallocation.
+- Link: https://github.com/pola-rs/polars/pull/27669#event-25757194234
+
+## Projects
+
+GPU Systems Focus:
+
+- RAPIDS cuDF internals: GPU dataframe behavior, Python/C++ interop, row-mask
+  APIs, null handling, and regression coverage in production C++/Python
+  codepaths.
+- LLM inference benchmarking: Sarvam 30B FP8 across H100 SXM, T4, and Apple M2.
+- Memory-safe systems work: Rust allocation-provenance fix in Polars.
+
+MAHE Mobility Challenge 2026:
+
+- 1st Place, AI Track.
+- Organized by HARMAN India and CoE in Autonomous Mobility.
+- Role: Backend Architect.
+- Built an intelligent notification management pipeline for connected vehicles.
+- Integrated a local Phi-3 model for edge alert classification.
+- Built Node.js/WebSocket priority triage engine.
+- Added real-time network heatmap and AI-generated recovery summaries.
+
+LLM Inference Benchmarking | Sarvam 30B FP8:
+
+- Repo: https://github.com/aryansri05/indicservebench
+- Benchmarked Sarvam 30B FP8 across NVIDIA H100 SXM, NVIDIA T4, and Apple M2
+  to evaluate inference performance across different hardware tiers.
+- Measured mean latency, P90/P95 latency, tokenization behavior, and throughput
+  trends to analyze real-world serving performance.
+- Built a reproducible GitHub benchmark setup with documented methodology,
+  hardware comparison, and performance observations.
+- Analyzed deployment tradeoffs across high-end data center GPUs, budget GPUs,
+  and consumer Apple Silicon environments.
+
+Paper Trading Platform:
+
+- Full-stack options trading simulator.
+- Supports calls, puts, and portfolio tracking.
+- React frontend, Node.js/Express backend, PostgreSQL database, JWT auth, and
+  real-time market data.
+
+## Skills
+
+- Languages: Python, C++, JavaScript, SQL, Bash
+- AI / ML: LangGraph, FastMCP, ChromaDB, Ollama, Llama 3, RAG, LLM agents
+- HPC / GPU: CUDA, cuDF, RAPIDS AI, LLM inference benchmarking, Apple Silicon
+  unified memory, SLURM
+- Frameworks: React.js, Node.js, Express, Pandas, NumPy, Pytest
+- Tools: Git, GitHub Actions, Docker, CI/CD, PostgreSQL, GraphQL, VS Code
+
+## Achievements
+
+- 1st Place, MAHE Mobility Challenge 2026, AI Track
+- 5 total merged open-source PRs
+- Merged Rust memory-safety fix in Polars
+- Experience navigating large C++/Python production codebases
+
+## Assistant Rules
+
+Answer questions only about Aryan. Keep answers short, professional, and
+recruiter-friendly. If information is missing, respond exactly:
+"I don’t have that information yet."

@@ -1,0 +1,68 @@
+{
+  "name": "Aryan Srivastava",
+  "title": "Computer Science Student | GPU Systems & AI Infrastructure Developer | Open Source Contributor",
+  "location": "Bengaluru, India",
+  "email": "aryansriva05@gmail.com",
+  "github": "https://github.com/aryansri05",
+  "linkedin": "https://www.linkedin.com/in/aryan-srivastava-821782333/",
+  "benchmarkRepo": "https://github.com/aryansri05/indicservebench",
+  "education": {
+    "school": "Manipal Institute of Technology, Bengaluru",
+    "degree": "B.Tech in Computer Science and Engineering",
+    "expectedGraduation": "January 2028"
+  },
+  "summary": "Aryan is a second-year Computer Science student at Manipal Institute of Technology, Bengaluru, building CUDA-adjacent GPU systems, GPU dataframe internals, LLM inference benchmarks, backend infrastructure, and production-grade open-source software.",
+  "openSource": [
+    {
+      "organization": "NVIDIA RAPIDS",
+      "project": "cuDF",
+      "status": "Merged",
+      "items": [
+        "PR #20747: Boolean Casting Consistency Fix; fixed behavioral inconsistency between cuDF and Pandas, modified Python/C++ interop logic, and added regression tests.",
+        "PR #20862: Hybrid Scan API; added a libcudf C++ API for all-true row masks with memory-safe null handling and unit tests."
+      ]
+    },
+    {
+      "organization": "Polars",
+      "project": "High-Performance DataFrame Library",
+      "status": "Merged",
+      "url": "https://github.com/pola-rs/polars/pull/27669#event-25757194234",
+      "items": [
+        "PR #27669: FixedRingBuffer Allocation Provenance; fixed a Rust allocation-provenance soundness issue in polars-utils by preserving the original Vec allocation for memory-safe deallocation."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "MAHE Mobility Challenge 2026",
+      "status": "1st Place, AI Track",
+      "role": "Backend Architect",
+      "summary": "Built an intelligent notification management pipeline for connected vehicles with Phi-3 edge alert classification, Node.js/WebSocket priority triage, a network heatmap, and AI-generated recovery summaries."
+    },
+    {
+      "name": "LLM Inference Benchmarking | Sarvam 30B FP8",
+      "status": "Benchmarking project",
+      "url": "https://github.com/aryansri05/indicservebench",
+      "summary": "Benchmarked Sarvam 30B FP8 across NVIDIA H100 SXM, NVIDIA T4, and Apple M2, measuring mean latency, P90/P95 latency, tokenization behavior, throughput trends, and deployment tradeoffs across hardware tiers."
+    },
+    {
+      "name": "Paper Trading Platform",
+      "status": "Full-stack project",
+      "summary": "An options trading simulator with calls, puts, portfolio tracking, React, Node.js/Express, PostgreSQL, JWT auth, and real-time market data."
+    }
+  ],
+  "skills": {
+    "languages": ["Python", "C++", "JavaScript", "SQL", "Bash"],
+    "aiMl": ["LangGraph", "FastMCP", "ChromaDB", "Ollama", "Llama 3", "RAG", "LLM agents"],
+    "hpcGpu": ["CUDA", "cuDF", "RAPIDS AI", "LLM inference benchmarking", "Apple Silicon unified memory", "SLURM"],
+    "frameworks": ["React.js", "Node.js", "Express", "Pandas", "NumPy", "Pytest"],
+    "tools": ["Git", "GitHub Actions", "Docker", "CI/CD", "PostgreSQL", "GraphQL", "VS Code"]
+  },
+  "achievements": [
+    "1st Place, MAHE Mobility Challenge 2026, AI Track",
+    "5 total merged open-source PRs",
+    "Merged Rust memory-safety fix in Polars",
+    "Experience navigating large C++/Python production codebases"
+  ],
+  "interests": "Aryan is interested in internships and collaborative work across CUDA-adjacent GPU systems, LLM inference performance, backend infrastructure, HPC, and production-grade open source."
+}

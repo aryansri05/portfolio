@@ -1,0 +1,143 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 3071 >>
+stream
+BT
+/F1 20 Tf
+72 760 Td
+(ARYAN SRIVASTAVA) Tj
+/F1 10 Tf
+0 -15 Td
+(Bengaluru, India | aryansriva05@gmail.com | github.com/aryansri05) Tj
+0 -15 Td
+(linkedin.com/in/aryan-srivastava-821782333) Tj
+0 -10 Td
+() Tj
+/F1 12 Tf
+0 -17 Td
+(PROFILE) Tj
+/F1 10 Tf
+0 -15 Td
+(Second-year Computer Science student focused on CUDA-adjacent GPU systems, GPU dataframe) Tj
+0 -15 Td
+(internals, LLM inference benchmarking, backend infrastructure, and production-grade open-source) Tj
+0 -15 Td
+(development.) Tj
+0 -15 Td
+(Contributes to large C++/Python and Rust codebases, writes tests, fixes behavioral) Tj
+0 -15 Td
+(inconsistencies, and works across backend, AI, and HPC systems.) Tj
+0 -10 Td
+() Tj
+/F1 12 Tf
+0 -17 Td
+(EDUCATION) Tj
+/F1 10 Tf
+0 -15 Td
+(Manipal Institute of Technology, Bengaluru) Tj
+0 -15 Td
+(B.Tech in Computer Science and Engineering | Expected January 2028) Tj
+0 -10 Td
+() Tj
+/F1 12 Tf
+0 -17 Td
+(OPEN SOURCE CONTRIBUTIONS) Tj
+/F1 10 Tf
+0 -15 Td
+(NVIDIA RAPIDS - cuDF) Tj
+0 -15 Td
+(- PR #20747: Boolean Casting Consistency Fix, merged.) Tj
+0 -15 Td
+(- Fixed behavioral inconsistency between cuDF and Pandas; modified Python/C++ interop logic and) Tj
+0 -15 Td
+(added regression tests.) Tj
+0 -15 Td
+(- PR #20862: Hybrid Scan API, merged.) Tj
+0 -15 Td
+(- Added a hybrid scan API in libcudf C++ for all-true row masks with memory-safe null handling) Tj
+0 -15 Td
+(and unit tests.) Tj
+0 -15 Td
+(Polars - High-Performance DataFrame Library \(Rust\)) Tj
+0 -15 Td
+(- PR #27669: FixedRingBuffer Allocation Provenance, merged.) Tj
+0 -15 Td
+(- Fixed a Rust allocation-provenance soundness issue in polars-utils by preserving the original) Tj
+0 -15 Td
+(Vec allocation.) Tj
+0 -10 Td
+() Tj
+/F1 12 Tf
+0 -17 Td
+(PROJECTS) Tj
+/F1 10 Tf
+0 -15 Td
+(MAHE Mobility Challenge 2026 - 1st Place, AI Track | Backend Architect) Tj
+0 -15 Td
+(- Built a connected-vehicle alert pipeline with local Phi-3 classification, Node.js/WebSocket) Tj
+0 -15 Td
+(triage, a heatmap, and recovery summaries.) Tj
+0 -15 Td
+(LLM Inference Benchmarking | Sarvam 30B FP8) Tj
+0 -15 Td
+(- Repo: github.com/aryansri05/indicservebench) Tj
+0 -15 Td
+(- Benchmarked Sarvam 30B FP8 across NVIDIA H100 SXM, NVIDIA T4, and Apple M2 for real-world) Tj
+0 -15 Td
+(inference performance.) Tj
+0 -15 Td
+(- Measured mean latency, P90/P95 latency, tokenization behavior, throughput trends, and hardware) Tj
+0 -15 Td
+(deployment tradeoffs.) Tj
+0 -15 Td
+(Paper Trading Platform) Tj
+0 -15 Td
+(- Full-stack options simulator with React, Node.js/Express, PostgreSQL, JWT auth, portfolio) Tj
+0 -15 Td
+(tracking, and real-time market data.) Tj
+0 -10 Td
+() Tj
+/F1 12 Tf
+0 -17 Td
+(TECHNICAL SKILLS) Tj
+/F1 10 Tf
+0 -15 Td
+(Languages: Python, C++, JavaScript, SQL, Bash) Tj
+0 -15 Td
+(AI / ML: LangGraph, FastMCP, ChromaDB, Ollama, Llama 3, RAG, LLM agents) Tj
+0 -15 Td
+(HPC / GPU: CUDA, cuDF, RAPIDS AI, LLM inference benchmarking, Apple Silicon unified memory,) Tj
+0 -15 Td
+(SLURM) Tj
+0 -15 Td
+(Frameworks: React.js, Node.js, Express, Pandas, NumPy, Pytest) Tj
+0 -15 Td
+(Tools: Git, GitHub Actions, Docker, CI/CD, PostgreSQL, GraphQL, VS Code) Tj
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+3434
+%%EOF
