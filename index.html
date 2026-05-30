@@ -153,65 +153,6 @@
           </dl>
         </article>
 
-        <article class="limitations-card reveal">
-          <div class="limitations-copy">
-            <p class="company">Benchmark Limitations</p>
-            <h3>External experimental study, not a production-performance claim.</h3>
-            <p>
-              This benchmark should be treated as an external experimental study,
-              not a claim about Sarvam's internal production performance.
-            </p>
-          </div>
-          <div class="limitations-table-wrap">
-            <table class="limitations-table">
-              <thead>
-                <tr>
-                  <th>Limitation</th>
-                  <th>Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Not Sarvam's production stack</th>
-                  <td>The benchmark was run on an external RunPod/SGLang setup, not Sarvam's internal production serving infrastructure.</td>
-                </tr>
-                <tr>
-                  <th scope="row">Single H100 setup</th>
-                  <td>The main measured run used one H100 SXM 80GB GPU, not a multi-GPU production deployment.</td>
-                </tr>
-                <tr>
-                  <th scope="row">Single concurrency</th>
-                  <td>Requests were sent one at a time. The benchmark does not evaluate batching, real traffic load, queueing behavior, or mixed prefill/decode scheduling under concurrency.</td>
-                </tr>
-                <tr>
-                  <th scope="row">Small prompt suite</th>
-                  <td>The prompt suite contained 48 prompts: 12 English, 12 Hindi, 12 Tamil, and 12 Hinglish/code-mixed prompts. This is useful for a pilot benchmark, but not enough for broad statistical claims.</td>
-                </tr>
-                <tr>
-                  <th scope="row">Short-context workload</th>
-                  <td>Prompts were mostly short conversational inputs. Long-context workloads were not tested.</td>
-                </tr>
-                <tr>
-                  <th scope="row">Client-side timing</th>
-                  <td>Latency was measured from the benchmark client. The current setup does not fully isolate tokenizer time, queue time, prefill time, decode time, network overhead, and server-side scheduling.</td>
-                </tr>
-                <tr>
-                  <th scope="row">Runtime not fully optimized</th>
-                  <td>CUDA Graphs were disabled, so the benchmark should be treated as a conservative baseline rather than a fully production-tuned serving run.</td>
-                </tr>
-                <tr>
-                  <th scope="row">Qwen comparison caveat</th>
-                  <td>The Qwen comparison required Triton fallback FP8/MoE kernels after DeepGEMM/CUDA Graph issues, so Qwen was not running in its most optimized configuration.</td>
-                </tr>
-                <tr>
-                  <th scope="row">No hosted API comparison</th>
-                  <td>The benchmark does not compare against Sarvam's hosted API latency, so it should not be interpreted as a product latency claim.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
         <div class="lab-shell reveal" data-inference-lab>
           <div class="lab-toolbar">
             <div>
@@ -287,6 +228,10 @@
               <span>Deployment tradeoff</span>
               <strong data-context="tradeoff">High-throughput FP8 serving</strong>
             </article>
+          </div>
+
+          <div class="lab-note" data-lab-note>
+            H100 uses measured Sarvam 30B FP8 data. T4 and M2 are replaceable baselines/placeholders.
           </div>
 
           <div class="lab-charts">
@@ -420,19 +365,100 @@
             </div>
           </article>
 
-          <article class="indian-ai-note">
-            <p class="eyebrow">Why This Matters For Indian AI</p>
+          <article class="indian-ai-note final-observations-card">
+            <p class="eyebrow">Final Observations</p>
+            <h3>Indian-language inference needs its own benchmark lens.</h3>
             <p>
               Indian-language inference cannot be judged only by English benchmarks.
               Tokenization behavior, tail latency, and hardware cost become important
               when serving Hindi, Tamil, and code-mixed prompts at scale.
             </p>
           </article>
-
-          <div class="lab-note" data-lab-note>
-            H100 uses measured Sarvam 30B FP8 data. T4 and M2 are replaceable baselines/placeholders.
-          </div>
         </div>
+
+        <article class="limitations-card reveal">
+          <div class="limitations-copy">
+            <p class="company">Benchmark Limitations</p>
+            <h3>External experimental study, not a production-performance claim.</h3>
+            <p>
+              This benchmark should be treated as an external experimental study,
+              not a claim about Sarvam's internal production performance.
+            </p>
+          </div>
+          <div class="limitations-table-wrap">
+            <table class="limitations-table">
+              <thead>
+                <tr>
+                  <th>Limitation</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Not Sarvam's production stack</th>
+                  <td>The benchmark was run on an external RunPod/SGLang setup, not Sarvam's internal production serving infrastructure.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Single H100 setup</th>
+                  <td>The main measured run used one H100 SXM 80GB GPU, not a multi-GPU production deployment.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Single concurrency</th>
+                  <td>Requests were sent one at a time. The benchmark does not evaluate batching, real traffic load, queueing behavior, or mixed prefill/decode scheduling under concurrency.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Small prompt suite</th>
+                  <td>The prompt suite contained 48 prompts: 12 English, 12 Hindi, 12 Tamil, and 12 Hinglish/code-mixed prompts. This is useful for a pilot benchmark, but not enough for broad statistical claims.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Short-context workload</th>
+                  <td>Prompts were mostly short conversational inputs. Long-context workloads were not tested.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Client-side timing</th>
+                  <td>Latency was measured from the benchmark client. The current setup does not fully isolate tokenizer time, queue time, prefill time, decode time, network overhead, and server-side scheduling.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Runtime not fully optimized</th>
+                  <td>CUDA Graphs were disabled, so the benchmark should be treated as a conservative baseline rather than a fully production-tuned serving run.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Qwen comparison caveat</th>
+                  <td>The Qwen comparison required Triton fallback FP8/MoE kernels after DeepGEMM/CUDA Graph issues, so Qwen was not running in its most optimized configuration.</td>
+                </tr>
+                <tr>
+                  <th scope="row">No hosted API comparison</th>
+                  <td>The benchmark does not compare against Sarvam's hosted API latency, so it should not be interpreted as a product latency claim.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="next-steps-card reveal">
+          <div>
+            <p class="company">Next Steps</p>
+            <h3>Where the benchmark becomes more production-like.</h3>
+          </div>
+          <div class="next-steps-grid">
+            <div>
+              <span>01</span>
+              <p>Add concurrency, batching, and queueing experiments.</p>
+            </div>
+            <div>
+              <span>02</span>
+              <p>Separate tokenizer, prefill, decode, network, and scheduler timing.</p>
+            </div>
+            <div>
+              <span>03</span>
+              <p>Expand long-context and larger Indic prompt suites.</p>
+            </div>
+            <div>
+              <span>04</span>
+              <p>Replace T4 and Apple M2 placeholders with exported raw runs.</p>
+            </div>
+          </div>
+        </article>
 
         <div class="replay-panel reveal">
           <div class="replay-copy">
