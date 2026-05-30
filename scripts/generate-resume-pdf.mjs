@@ -10,7 +10,7 @@ const lines = [
   { text: "PROFILE", size: 12 },
   {
     text:
-      "Second-year Computer Science student focused on CUDA-adjacent GPU systems, GPU dataframe internals, LLM inference benchmarking, backend infrastructure, and production-grade open-source development.",
+      "Second-year engineering student focused on CUDA-adjacent GPU systems, GPU dataframe internals, LLM inference benchmarking, backend infrastructure, and production-grade open-source development.",
     size: 10
   },
   {
@@ -21,7 +21,7 @@ const lines = [
   { text: "", size: 10 },
   { text: "EDUCATION", size: 12 },
   { text: "Manipal Institute of Technology, Bengaluru", size: 10 },
-  { text: "B.Tech in Computer Science and Engineering | Expected January 2028", size: 10 },
+  { text: "B.Tech undergraduate | Expected January 2028", size: 10 },
   { text: "", size: 10 },
   { text: "OPEN SOURCE CONTRIBUTIONS", size: 12 },
   { text: "NVIDIA RAPIDS - cuDF", size: 10 },

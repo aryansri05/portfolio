@@ -1,8 +1,7 @@
 # Aryan Srivastava
 
-Aryan Srivastava is a second-year Computer Science and Engineering student at
-Manipal Institute of Technology, Bengaluru. He is expected to graduate in January
-2028.
+Aryan Srivastava is a second-year engineering student at Manipal Institute of
+Technology, Bengaluru. He is expected to graduate in January 2028.
 
 Aryan focuses on CUDA-adjacent GPU systems, GPU dataframe internals, LLM
 inference benchmarking, high-performance computing, backend systems, and

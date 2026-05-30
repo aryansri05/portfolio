@@ -12,7 +12,7 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 5 0 obj
-<< /Length 3188 >>
+<< /Length 3161 >>
 stream
 BT
 /F1 20 Tf
@@ -30,9 +30,9 @@ BT
 (PROFILE) Tj
 /F1 10 Tf
 0 -15 Td
-(Second-year Computer Science student focused on CUDA-adjacent GPU systems, GPU dataframe) Tj
+(Second-year engineering student focused on CUDA-adjacent GPU systems, GPU dataframe internals,) Tj
 0 -15 Td
-(internals, LLM inference benchmarking, backend infrastructure, and production-grade open-source) Tj
+(LLM inference benchmarking, backend infrastructure, and production-grade open-source) Tj
 0 -15 Td
 (development.) Tj
 0 -15 Td
@@ -48,7 +48,7 @@ BT
 0 -15 Td
 (Manipal Institute of Technology, Bengaluru) Tj
 0 -15 Td
-(B.Tech in Computer Science and Engineering | Expected January 2028) Tj
+(B.Tech undergraduate | Expected January 2028) Tj
 0 -10 Td
 () Tj
 /F1 12 Tf
@@ -141,5 +141,5 @@ xref
 trailer
 << /Size 6 /Root 1 0 R >>
 startxref
-3551
+3524
 %%EOF

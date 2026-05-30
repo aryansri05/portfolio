@@ -451,6 +451,51 @@ h4 {
   font-size: 0.78rem;
 }
 
+.methodology-card {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.32fr) minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 18px;
+  padding: 24px;
+}
+
+.methodology-card h3 {
+  margin-bottom: 0;
+}
+
+.methodology-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  overflow: hidden;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.methodology-grid div {
+  min-width: 0;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.methodology-grid dt {
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.methodology-grid dd {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 .lab-shell {
   min-width: 0;
   margin-top: 18px;
@@ -1096,6 +1141,7 @@ h4 {
 .focus-card,
 .benchmark-panel,
 .featured-benchmark,
+.methodology-card,
 .lab-shell,
 .replay-panel,
 .bottleneck-card {
@@ -1531,6 +1577,7 @@ h4 {
   .split,
   .gpu-layout,
   .featured-benchmark,
+  .methodology-card,
   .lab-toolbar,
   .replay-panel,
   .bottleneck-grid,
@@ -1561,6 +1608,10 @@ h4 {
   }
 
   .lab-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .methodology-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1643,6 +1694,7 @@ h4 {
   .info-block,
   .focus-card,
   .featured-benchmark,
+  .methodology-card,
   .lab-shell,
   .indian-ai-note,
   .replay-panel,
@@ -1659,6 +1711,7 @@ h4 {
   .two-column,
   .skills-grid,
   .token-controls,
+  .methodology-grid,
   .lab-metrics,
   .lab-context-grid,
   .featured-stats,

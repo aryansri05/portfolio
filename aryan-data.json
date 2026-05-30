@@ -1,6 +1,6 @@
 {
   "name": "Aryan Srivastava",
-  "title": "Computer Science Student | GPU Systems & AI Infrastructure Developer | Open Source Contributor",
+  "title": "Engineering Student | GPU Systems & AI Infrastructure Developer | Open Source Contributor",
   "location": "Bengaluru, India",
   "email": "aryansriva05@gmail.com",
   "github": "https://github.com/aryansri05",
@@ -8,10 +8,10 @@
   "benchmarkRepo": "https://github.com/aryansri05/indicservebench",
   "education": {
     "school": "Manipal Institute of Technology, Bengaluru",
-    "degree": "B.Tech in Computer Science and Engineering",
+    "degree": "B.Tech undergraduate",
     "expectedGraduation": "January 2028"
   },
-  "summary": "Aryan is a second-year Computer Science student at Manipal Institute of Technology, Bengaluru, building CUDA-adjacent GPU systems, GPU dataframe internals, LLM inference benchmarks, backend infrastructure, and production-grade open-source software.",
+  "summary": "Aryan is a second-year engineering student at Manipal Institute of Technology, Bengaluru, building CUDA-adjacent GPU systems, GPU dataframe internals, LLM inference benchmarks, backend infrastructure, and production-grade open-source software.",
   "openSource": [
     {
       "organization": "NVIDIA RAPIDS",
