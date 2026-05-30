@@ -12,7 +12,7 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 5 0 obj
-<< /Length 3071 >>
+<< /Length 3188 >>
 stream
 BT
 /F1 20 Tf
@@ -94,13 +94,15 @@ BT
 0 -15 Td
 (- Repo: github.com/aryansri05/indicservebench) Tj
 0 -15 Td
-(- Benchmarked Sarvam 30B FP8 across NVIDIA H100 SXM, NVIDIA T4, and Apple M2 for real-world) Tj
+(- Benchmarked Sarvam 30B FP8 on H100 SXM using 240 measured inference requests across English,) Tj
 0 -15 Td
-(inference performance.) Tj
+(Hindi, Tamil, and Hinglish/code-mixed prompts.) Tj
 0 -15 Td
-(- Measured mean latency, P90/P95 latency, tokenization behavior, throughput trends, and hardware) Tj
+(- Tracked tokenization behavior, mean latency, P90/P95 latency, and throughput to analyze) Tj
 0 -15 Td
-(deployment tradeoffs.) Tj
+(serving performance and deployment tradeoffs.) Tj
+0 -15 Td
+(- Additional T4 and Apple M2 baselines are being expanded.) Tj
 0 -15 Td
 (Paper Trading Platform) Tj
 0 -15 Td
@@ -139,5 +141,5 @@ xref
 trailer
 << /Size 6 /Root 1 0 R >>
 startxref
-3434
+3551
 %%EOF

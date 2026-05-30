@@ -46,7 +46,7 @@ const ARYAN_DATA_FALLBACK = {
       status: "Benchmarking project",
       url: "https://github.com/aryansri05/indicservebench",
       summary:
-        "Benchmarked Sarvam 30B FP8 across NVIDIA H100 SXM, NVIDIA T4, and Apple M2, measuring mean latency, P90/P95 latency, tokenization behavior, throughput trends, and deployment tradeoffs across hardware tiers."
+        "Benchmarked Sarvam 30B FP8 on H100 SXM using 240 measured inference requests across English, Hindi, Tamil, and Hinglish/code-mixed prompts. Tracked tokenization behavior, mean latency, P90/P95 latency, and throughput to analyze serving performance and deployment tradeoffs. Additional T4 and Apple M2 baselines are being expanded."
     },
     {
       name: "Paper Trading Platform",
@@ -151,9 +151,29 @@ function answerQuestion(question) {
     return `Main skills: ${joinList(skills.languages)}; AI/ML: ${joinList(skills.aiMl)}; GPU/HPC: ${joinList(skills.hpcGpu)}; backend/tools: ${joinList([...skills.frameworks, ...skills.tools])}.`;
   }
 
-  if (hasAny(q, ["benchmark", "sarvam", "inference", "h100", "t4", "m2", "indicservebench", "latency", "throughput", "tokenizer"])) {
+  if (hasAny(q, ["limitation", "limitations", "caveat", "caveats", "not measured", "missing"])) {
+    return "Limitations: the H100 run is a preliminary single-H100 SGLang pilot, T4 uses median/P95 aggregate data rather than raw per-request mean latency, and Apple M2 values are placeholders until exported results are added.";
+  }
+
+  if (hasAny(q, ["input token", "output token", "tokens matter", "token budget"])) {
+    return "Input tokens affect prefill work and memory pressure; output tokens affect decode time and throughput. For Indian-language prompts, tokenizer expansion can change latency and cost, so Aryan tracked token counts alongside mean and P95 latency.";
+  }
+
+  if (hasAny(q, ["ai infra team", "infra team", "help team", "fit for ai infra", "ai infrastructure team"])) {
+    return "Aryan can help an AI infra team by designing reproducible inference benchmarks, analyzing tail latency and tokenization behavior, comparing hardware tradeoffs, and turning results into clear engineering decisions.";
+  }
+
+  if (hasAny(q, ["benchmark", "sarvam", "inference", "h100", "t4", "m2", "indicservebench", "latency", "throughput", "tokenizer", "measure", "measured", "metrics"])) {
     if (hasAny(q, ["language", "hindi", "tamil", "english", "hinglish", "codemix", "code mixed", "p95"])) {
       return "Language summary: H100 has measured mean/P95 total latency for English, Hindi, Tamil, and Hinglish across 240 requests. T4 has Hindi, Tamil, and code-mixed median/P95 aggregates. M2 is shown as a placeholder until exported language results are added.";
+    }
+
+    if (hasAny(q, ["explain", "what is this", "overview"])) {
+      return "This benchmark evaluates Sarvam 30B FP8 inference on H100 SXM using 240 measured requests across English, Hindi, Tamil, and Hinglish/code-mixed prompts. It tracks tokenization, mean latency, P90/P95 latency, and throughput to understand serving tradeoffs.";
+    }
+
+    if (hasAny(q, ["what did", "measure", "measured", "metrics"])) {
+      return "Aryan measured formatted input tokens, output tokens, mean latency, P90/P95 latency, throughput, TTFT, tokenizer behavior, and hardware deployment tradeoffs.";
     }
 
     if (hasAny(q, ["repo", "github", "code", "indicservebench"])) {
@@ -164,7 +184,7 @@ function answerQuestion(question) {
       return "H100 SXM is the strongest serving target because it has far more memory bandwidth, compute headroom, and FP8-oriented data-center capability than T4 or Apple M2. T4 is budget-constrained; M2 is useful as a local baseline.";
     }
 
-    return "Aryan benchmarked Sarvam 30B FP8 inference across H100 SXM, NVIDIA T4, and Apple M2, focusing on mean latency, P90/P95 tail latency, tokenization behavior, tokens/sec, and deployment tradeoffs. Repo: https://github.com/aryansri05/indicservebench.";
+    return "Aryan benchmarked Sarvam 30B FP8 on H100 SXM using 240 measured inference requests across English, Hindi, Tamil, and Hinglish/code-mixed prompts. He tracked tokenization behavior, mean latency, P90/P95 latency, and throughput; T4 and Apple M2 baselines are being expanded. Repo: https://github.com/aryansri05/indicservebench.";
   }
 
   if (hasAny(q, ["nvidia", "rapids", "cudf", "polars", "open source", "opensource", "contribution", "pr", "pull request"])) {
@@ -460,7 +480,9 @@ function initInferenceLab() {
   const languageNote = document.querySelector("[data-language-note]");
   const replayFlow = document.querySelector("[data-replay-flow]");
   const replayButton = document.querySelector("[data-replay-button]");
+  const replayProgress = document.querySelector("[data-replay-progress]");
   const bottleneckGrid = document.querySelector("[data-bottleneck-grid]");
+  const replayButtonLabel = replayButton?.textContent || "Replay request";
 
   const getHardware = () => data.hardware.find((hardware) => hardware.id === state.hardwareId);
 
@@ -486,10 +508,18 @@ function initInferenceLab() {
   const updateReplay = () => {
     const hardware = getHardware();
     const metrics = calculateBenchmark(hardware, state.inputTokens, state.outputTokens);
+    const steps = data.replaySteps;
+    const currentStep = steps[state.replayIndex] || steps[0];
     replayFlow.querySelectorAll(".replay-step").forEach((step, index) => {
+      step.classList.toggle("is-complete", index < state.replayIndex);
+      step.classList.toggle("is-current", index === state.replayIndex);
       step.classList.toggle("is-active", index <= state.replayIndex);
     });
+    if (replayProgress) {
+      replayProgress.style.width = `${((state.replayIndex + 1) / steps.length) * 100}%`;
+    }
     document.querySelector('[data-replay="hardware"]').textContent = hardware.label;
+    document.querySelector('[data-replay="step"]').textContent = currentStep.label;
     document.querySelector('[data-replay="inputTokens"]').textContent = state.inputTokens;
     document.querySelector('[data-replay="outputTokens"]').textContent = state.outputTokens;
     document.querySelector('[data-replay="latency"]').textContent = formatMs(metrics.meanLatencyMs);
@@ -567,7 +597,15 @@ function initInferenceLab() {
     .map((profile) => `<button type="button" data-profile="${profile.id}" title="${profile.note}">${profile.label}</button>`)
     .join("");
   replayFlow.innerHTML = data.replaySteps
-    .map((step) => `<article class="replay-step"><strong>${step.label}</strong><span>${step.detail}</span></article>`)
+    .map(
+      (step, index) => `
+        <article class="replay-step">
+          <em class="replay-index">${String(index + 1).padStart(2, "0")}</em>
+          <strong>${step.label}</strong>
+          <span>${step.detail}</span>
+        </article>
+      `
+    )
     .join("");
   bottleneckGrid.innerHTML = data.hardware
     .map(
@@ -614,15 +652,21 @@ function initInferenceLab() {
   replayButton?.addEventListener("click", () => {
     window.clearInterval(state.replayTimer);
     state.replayIndex = 0;
+    replayButton.disabled = true;
+    replayButton.textContent = "Replaying trace";
     updateReplay();
     state.replayTimer = window.setInterval(() => {
       state.replayIndex += 1;
       if (state.replayIndex >= data.replaySteps.length - 1) {
         state.replayIndex = data.replaySteps.length - 1;
         window.clearInterval(state.replayTimer);
+        window.setTimeout(() => {
+          replayButton.disabled = false;
+          replayButton.textContent = replayButtonLabel;
+        }, 420);
       }
       updateReplay();
-    }, 520);
+    }, 680);
   });
 
   updateLab();

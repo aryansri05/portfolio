@@ -136,7 +136,7 @@ window.BENCHMARK_DATA = {
     }
   ],
   languageLatency: {
-    note: "H100 mean/P95 total latency is computed from 240 measured raw JSONL requests across five passes. T4 source exposes median and P95 language aggregates, so median is shown as the central-latency proxy until raw request data is added. M2 rows are placeholders from the local benchmark script until exported M2 results are available.",
+    note: "H100 mean/P95 total latency is computed from 240 measured raw JSONL requests across five passes; P95 uses the same interpolated percentile convention as the summary analysis. T4 source exposes median and P95 language aggregates, so median is shown as the central-latency proxy until raw request data is added. M2 rows are placeholders from the local benchmark script until exported M2 results are available.",
     languages: [
       {
         id: "en",
@@ -144,7 +144,7 @@ window.BENCHMARK_DATA = {
         h100: {
           n: 60,
           meanLatencyMs: 882.9,
-          p95LatencyMs: 901.7,
+          p95LatencyMs: 901.9,
           meanInputTokens: 61.3,
           meanOutputTokens: 32,
           tokensPerSecond: 36.25,
@@ -160,7 +160,7 @@ window.BENCHMARK_DATA = {
         h100: {
           n: 60,
           meanLatencyMs: 904.6,
-          p95LatencyMs: 904.1,
+          p95LatencyMs: 924.1,
           meanInputTokens: 68.5,
           meanOutputTokens: 32,
           tokensPerSecond: 35.65,
@@ -228,7 +228,7 @@ window.BENCHMARK_DATA = {
         h100: {
           n: 60,
           meanLatencyMs: 890.7,
-          p95LatencyMs: 898.8,
+          p95LatencyMs: 898.9,
           meanInputTokens: 66.9,
           meanOutputTokens: 32,
           tokensPerSecond: 36.03,

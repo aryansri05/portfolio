@@ -1,0 +1,4 @@
+language,measured_request_count,successful_request_count,failed_request_count,mean_input_tokens,median_input_tokens,mean_output_tokens,median_output_tokens,median_latency_ms,p90_latency_ms,p95_latency_ms,max_latency_ms,mean_output_tokens_per_second,failure_rate
+hindi,50,50,0,11.6,11.0,46.56,64.0,2403.436,2642.414,2700.797,2809.965,24.865,0.0
+tamil,50,50,0,12.5,12.5,62.52,64.0,2483.163,3019.428,3089.552,3155.017,24.673,0.0
+codemix,50,50,0,24.7,22.0,61.7,64.0,2462.651,3017.764,3071.999,3162.843,24.845,0.0

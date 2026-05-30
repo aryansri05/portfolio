@@ -91,9 +91,11 @@
             <p class="company">Featured Project</p>
             <h3>Sarvam 30B FP8 Inference Benchmarking</h3>
             <p>
-              Benchmarked Sarvam 30B FP8 across H100 SXM, NVIDIA T4, and Apple M2,
-              measuring mean latency, P90/P95 latency, tokenization behavior, and
-              throughput trends to analyze deployment tradeoffs across hardware tiers.
+              Benchmarked Sarvam 30B FP8 on H100 SXM using 240 measured inference
+              requests across English, Hindi, Tamil, and Hinglish/code-mixed prompts.
+              Tracked tokenization behavior, mean latency, P90/P95 latency, and
+              throughput to analyze serving performance and deployment tradeoffs.
+              Additional T4 and Apple M2 baselines are being expanded.
             </p>
             <div class="featured-actions">
               <a class="button button-primary" href="https://github.com/aryansri05/indicservebench" target="_blank" rel="noreferrer">
@@ -164,6 +166,16 @@
               <span>Cost / 1M output tokens</span>
               <strong data-metric="costPerMillion">$23.13</strong>
             </article>
+          </div>
+
+          <div class="raw-data-action">
+            <div>
+              <span class="control-label">Raw Data</span>
+              <p>Download raw benchmark JSONL and CSV files used for the H100/T4 summaries.</p>
+            </div>
+            <a class="button button-primary" href="data/aryan-sarvam-benchmark-raw.zip" download>
+              Download raw benchmark JSONL / CSV
+            </a>
           </div>
 
           <div class="lab-context-grid" aria-label="Benchmark context">
@@ -237,6 +249,15 @@
             <p class="language-note" data-language-note></p>
           </article>
 
+          <article class="indian-ai-note">
+            <p class="eyebrow">Why This Matters For Indian AI</p>
+            <p>
+              Indian-language inference cannot be judged only by English benchmarks.
+              Tokenization behavior, tail latency, and hardware cost become important
+              when serving Hindi, Tamil, and code-mixed prompts at scale.
+            </p>
+          </article>
+
           <div class="lab-note" data-lab-note>
             H100 uses measured Sarvam 30B FP8 data. T4 and M2 are replaceable baselines/placeholders.
           </div>
@@ -254,10 +275,17 @@
           </div>
           <div>
             <div class="replay-flow" data-replay-flow></div>
+            <div class="replay-progress" aria-hidden="true">
+              <span data-replay-progress></span>
+            </div>
             <div class="replay-readout">
               <div>
                 <span>Hardware</span>
                 <strong data-replay="hardware">H100 SXM</strong>
+              </div>
+              <div>
+                <span>Current step</span>
+                <strong data-replay="step">Prompt received</strong>
               </div>
               <div>
                 <span>Input tokens</span>
@@ -303,8 +331,9 @@
               <span class="focus-index">02</span>
               <h3>LLM Inference Benchmarking</h3>
               <p>
-                Benchmarked Sarvam 30B FP8 across H100 SXM, T4, and Apple M2 to compare
-                latency, tokenization behavior, throughput trends, and serving tradeoffs.
+                Benchmarked Sarvam 30B FP8 on H100 SXM across English, Hindi,
+                Tamil, and Hinglish/code-mixed prompts, with T4 and Apple M2
+                baselines being expanded.
               </p>
             </article>
 
@@ -467,8 +496,11 @@
             </div>
             <h3>LLM Inference Benchmarking | Sarvam 30B FP8</h3>
             <p>
-              Benchmarked Sarvam 30B FP8 across NVIDIA H100 SXM, NVIDIA T4,
-              and Apple M2 to evaluate inference performance across hardware tiers.
+              Benchmarked Sarvam 30B FP8 on H100 SXM using 240 measured inference
+              requests across English, Hindi, Tamil, and Hinglish/code-mixed prompts.
+              Tracked tokenization behavior, mean latency, P90/P95 latency, and
+              throughput to analyze serving performance and deployment tradeoffs.
+              Additional T4 and Apple M2 baselines are being expanded.
             </p>
             <ul>
               <li>Measured mean latency, P90/P95 latency, tokenization behavior, and throughput trends.</li>
@@ -591,10 +623,11 @@
         </div>
       </div>
       <div class="prompt-chips" aria-label="Example questions">
-        <button type="button" data-question="What did Aryan benchmark?">Benchmark</button>
-        <button type="button" data-question="What open-source work has Aryan done?">Open source</button>
-        <button type="button" data-question="What projects has Aryan built?">Projects</button>
-        <button type="button" data-question="What are Aryan's main skills?">Skills</button>
+        <button type="button" data-question="Explain this benchmark">Explain benchmark</button>
+        <button type="button" data-question="Why do input and output tokens matter?">Tokens matter</button>
+        <button type="button" data-question="What did Aryan measure?">Measurements</button>
+        <button type="button" data-question="What are the limitations?">Limitations</button>
+        <button type="button" data-question="How can Aryan help an AI infra team?">AI infra fit</button>
       </div>
       <form class="chat-form" data-chat-form>
         <label class="visually-hidden" for="chat-input">Ask Aryan AI</label>

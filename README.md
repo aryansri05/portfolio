@@ -11,6 +11,9 @@ Edit `benchmark-data.js` to update the Inference Lab hardware profiles,
 latency numbers, token counts, throughput, cost estimates, replay steps, and
 bottleneck notes.
 
+Raw downloadable benchmark files live in `data/raw-benchmark/`. The site links
+to `data/aryan-sarvam-benchmark-raw.zip`.
+
 ## Local Preview
 
 ```bash

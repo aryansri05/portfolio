@@ -43,7 +43,7 @@
       "name": "LLM Inference Benchmarking | Sarvam 30B FP8",
       "status": "Benchmarking project",
       "url": "https://github.com/aryansri05/indicservebench",
-      "summary": "Benchmarked Sarvam 30B FP8 across NVIDIA H100 SXM, NVIDIA T4, and Apple M2, measuring mean latency, P90/P95 latency, tokenization behavior, throughput trends, and deployment tradeoffs across hardware tiers."
+      "summary": "Benchmarked Sarvam 30B FP8 on H100 SXM using 240 measured inference requests across English, Hindi, Tamil, and Hinglish/code-mixed prompts. Tracked tokenization behavior, mean latency, P90/P95 latency, and throughput to analyze serving performance and deployment tradeoffs. Additional T4 and Apple M2 baselines are being expanded."
     },
     {
       "name": "Paper Trading Platform",

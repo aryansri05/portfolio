@@ -1,0 +1,5 @@
+language,prompt_count,successful_request_count,failed_request_count,mean_raw_user_prompt_tokens,mean_formatted_input_tokens,median_ttft_ms,p90_ttft_ms,p90_note,median_total_latency_ms,mean_output_tokens,mean_end_to_end_output_tokens_per_second
+en,24,24,0,14.417,61.25,62.087,63.556,,879.252,32.0,36.227
+hi,24,24,0,17.75,68.5,62.928,65.046,,878.809,32.0,36.241
+ta,24,24,0,17.833,71.667,63.272,67.482,,881.119,32.0,36.242
+hinglish,24,24,0,17.0,66.917,62.314,64.921,,878.697,32.0,36.25
