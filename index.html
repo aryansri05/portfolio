@@ -341,6 +341,85 @@
             <p class="language-note" data-language-note></p>
           </article>
 
+          <article class="qwen-observation-card">
+            <div class="qwen-observation-copy">
+              <p class="eyebrow">Preliminary Sarvam vs Qwen Observation</p>
+              <h3>Tokenizer efficiency shows up quickly in Indic-language serving.</h3>
+              <p>
+                In a preliminary same-H100 SGLang streaming pilot, Sarvam 30B FP8
+                showed stable and lower median TTFT across English, Hindi, Tamil,
+                and Hinglish/code-mixed prompts. Qwen tokenized Hindi and Tamil
+                prompts much more heavily and was slower overall in this specific setup.
+              </p>
+            </div>
+
+            <div class="qwen-table-wrap">
+              <table class="qwen-table">
+                <thead>
+                  <tr>
+                    <th>Language</th>
+                    <th>Sarvam Median TTFT</th>
+                    <th>Qwen Median TTFT</th>
+                    <th>Sarvam Avg Raw Tokens</th>
+                    <th>Qwen Avg Raw Tokens</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">English</th>
+                    <td data-label="Sarvam Median TTFT">~62 ms</td>
+                    <td data-label="Qwen Median TTFT">~115 ms</td>
+                    <td data-label="Sarvam Avg Raw Tokens">14.42</td>
+                    <td data-label="Qwen Avg Raw Tokens">14.75</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Hindi</th>
+                    <td data-label="Sarvam Median TTFT">~63 ms</td>
+                    <td data-label="Qwen Median TTFT">~116 ms</td>
+                    <td data-label="Sarvam Avg Raw Tokens">17.75</td>
+                    <td data-label="Qwen Avg Raw Tokens">66.67</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tamil</th>
+                    <td data-label="Sarvam Median TTFT">~63 ms</td>
+                    <td data-label="Qwen Median TTFT">~145 ms</td>
+                    <td data-label="Sarvam Avg Raw Tokens">17.83</td>
+                    <td data-label="Qwen Avg Raw Tokens">81.00</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Hinglish</th>
+                    <td data-label="Sarvam Median TTFT">~62 ms</td>
+                    <td data-label="Qwen Median TTFT">~116 ms</td>
+                    <td data-label="Sarvam Avg Raw Tokens">17.00</td>
+                    <td data-label="Qwen Avg Raw Tokens">22.33</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="qwen-observation-grid">
+              <div>
+                <h4>Clean Interpretation</h4>
+                <p>
+                  Sarvam's TTFT stayed almost flat across all four language groups,
+                  even when moving from English to Hindi, Tamil, and Hinglish/code-mixed
+                  prompts. Qwen used significantly more tokens for Hindi and Tamil, and
+                  Tamil showed a noticeable TTFT increase in this setup.
+                </p>
+              </div>
+              <div>
+                <h4>Important Caveat</h4>
+                <p>
+                  This supports tokenizer efficiency as an important signal for
+                  Indic-language inference, but it does not prove that tokenization alone
+                  caused the latency difference. Runtime configuration, kernel selection,
+                  scheduler behavior, CUDA Graph availability, fallback kernels, and
+                  serving framework behavior can also affect TTFT and latency.
+                </p>
+              </div>
+            </div>
+          </article>
+
           <article class="indian-ai-note">
             <p class="eyebrow">Why This Matters For Indian AI</p>
             <p>

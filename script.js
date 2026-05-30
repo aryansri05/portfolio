@@ -163,6 +163,10 @@ function answerQuestion(question) {
     return "Aryan can help an AI infra team by designing reproducible inference benchmarks, analyzing tail latency and tokenization behavior, comparing hardware tradeoffs, and turning results into clear engineering decisions.";
   }
 
+  if (hasAny(q, ["qwen", "sarvam vs qwen", "qwen comparison"])) {
+    return "Preliminary same-H100 SGLang observation: Sarvam 30B FP8 had lower and more stable median TTFT across English, Hindi, Tamil, and Hinglish/code-mixed prompts. Qwen tokenized Hindi and Tamil much more heavily and was slower in this setup, but runtime configuration and fallback kernels also affect latency.";
+  }
+
   if (hasAny(q, ["benchmark", "sarvam", "inference", "h100", "t4", "m2", "indicservebench", "latency", "throughput", "tokenizer", "measure", "measured", "metrics"])) {
     if (hasAny(q, ["language", "hindi", "tamil", "english", "hinglish", "codemix", "code mixed", "p95"])) {
       return "Language summary: H100 has measured mean/P95 total latency for English, Hindi, Tamil, and Hinglish across 240 requests. T4 has Hindi, Tamil, and code-mixed median/P95 aggregates. M2 is shown as a placeholder until exported language results are added.";

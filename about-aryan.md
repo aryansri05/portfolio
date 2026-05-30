@@ -67,6 +67,23 @@ LLM Inference Benchmarking | Sarvam 30B FP8:
 - Analyzed deployment tradeoffs across high-end data center GPUs, budget GPUs,
   and consumer Apple Silicon environments.
 
+Preliminary Sarvam vs Qwen observation:
+
+- In a preliminary same-H100 SGLang streaming pilot, Sarvam 30B FP8 showed
+  stable and lower median TTFT across English, Hindi, Tamil, and
+  Hinglish/code-mixed prompts.
+- Qwen tokenized Hindi and Tamil prompts much more heavily and was slower overall
+  in this specific setup.
+- Sarvam median TTFT / Qwen median TTFT: English ~62 ms / ~115 ms; Hindi
+  ~63 ms / ~116 ms; Tamil ~63 ms / ~145 ms; Hinglish ~62 ms / ~116 ms.
+- Sarvam average raw tokens / Qwen average raw tokens: English 14.42 / 14.75;
+  Hindi 17.75 / 66.67; Tamil 17.83 / 81.00; Hinglish 17.00 / 22.33.
+- This supports tokenizer efficiency as an important signal for Indic-language
+  inference, but it does not prove tokenization alone caused the latency
+  difference. Runtime configuration, kernel selection, scheduler behavior, CUDA
+  Graph availability, fallback kernels, and serving framework behavior can also
+  affect TTFT and latency.
+
 Benchmark limitations:
 
 - External experimental study, not a claim about Sarvam internal production
