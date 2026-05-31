@@ -10,7 +10,7 @@
     <meta name="theme-color" content="#f8f9fb">
     <title>Aryan Srivastava | GPU Systems & AI Infrastructure</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=metric-provenance">
+    <link rel="stylesheet" href="styles.css?v=csv-download">
     <script src="benchmark-data.js?v=metric-provenance" defer></script>
     <script src="script.js?v=metric-provenance" defer></script>
   </head>
@@ -204,11 +204,16 @@
           <div class="raw-data-action">
             <div>
               <span class="control-label">Raw Data</span>
-              <p>Download raw benchmark JSONL and CSV files used for the H100/T4 summaries.</p>
+              <p>Download raw benchmark JSONL, hardware summaries, and the Indic model comparison CSV.</p>
             </div>
-            <a class="button button-primary" href="data/aryan-sarvam-benchmark-raw.zip" download>
-              Download raw benchmark JSONL / CSV
-            </a>
+            <div class="raw-data-links">
+              <a class="button button-primary" href="data/aryan-sarvam-benchmark-raw.zip" download>
+                Download raw benchmark JSONL / CSV
+              </a>
+              <a class="button" href="data/raw-benchmark/indic-model-comparison-summary.csv" download>
+                Download Indic model comparison CSV
+              </a>
+            </div>
           </div>
 
           <div class="lab-context-grid" aria-label="Benchmark context">

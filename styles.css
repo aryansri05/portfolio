@@ -753,6 +753,13 @@ h4 {
   flex-shrink: 0;
 }
 
+.raw-data-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
 .lab-charts {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1930,6 +1937,11 @@ h4 {
   .raw-data-action {
     display: grid;
     align-items: stretch;
+  }
+
+  .raw-data-links {
+    display: grid;
+    justify-content: stretch;
   }
 
   .raw-data-action .button {
