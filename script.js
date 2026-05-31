@@ -589,7 +589,12 @@ function initInferenceLab() {
       formatUsd
     );
 
-    note.textContent = `${hardware.source} Current profile: ${state.inputTokens} input tokens, ${state.outputTokens} output tokens.`;
+    const isMeasuredBaseline =
+      state.inputTokens === hardware.measured.inputTokens &&
+      state.outputTokens === hardware.measured.outputTokens &&
+      hardware.dataQuality === "measured";
+    const profileLabel = isMeasuredBaseline ? "Measured baseline" : "Modeled selected profile";
+    note.textContent = `${hardware.source} ${profileLabel}: ${state.inputTokens} input tokens, ${state.outputTokens} output tokens. Slider-based values are estimates from baseline latency and throughput, not direct raw measurements at every token budget.`;
     state.replayIndex = Math.min(state.replayIndex, data.replaySteps.length - 1);
     updateReplay();
   };

@@ -10,9 +10,9 @@
     <meta name="theme-color" content="#f8f9fb">
     <title>Aryan Srivastava | GPU Systems & AI Infrastructure</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=white-qwen-card">
-    <script src="benchmark-data.js" defer></script>
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=metric-provenance">
+    <script src="benchmark-data.js?v=metric-provenance" defer></script>
+    <script src="script.js?v=metric-provenance" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -231,35 +231,37 @@
           </div>
 
           <div class="lab-note" data-lab-note>
-            H100 uses measured Sarvam 30B FP8 data. T4 and M2 are replaceable baselines/placeholders.
+            H100 uses measured Sarvam 30B FP8 data at the 67-input / 32-output token baseline.
+            Slider-based chart values are modeled from baseline throughput, not direct measurements.
+            T4 and M2 are replaceable baselines/placeholders.
           </div>
 
           <div class="lab-charts">
             <article class="chart-card">
               <div>
-                <h3>Latency vs output tokens</h3>
-                <p>Estimated serving curve for the selected hardware.</p>
+                <h3>Modeled latency vs output tokens</h3>
+                <p>Projected curve from baseline throughput; direct H100 measurements used 32 output tokens.</p>
               </div>
               <div class="line-chart" data-chart="latency-output"></div>
             </article>
             <article class="chart-card">
               <div>
-                <h3>Hardware comparison</h3>
-                <p>Mean latency at the selected token budget.</p>
+                <h3>Hardware comparison estimate</h3>
+                <p>Modeled mean latency at the selected token budget.</p>
               </div>
               <div class="bar-chart" data-chart="hardware-latency"></div>
             </article>
             <article class="chart-card">
               <div>
-                <h3>P95 vs mean latency</h3>
-                <p>Tail latency awareness for production serving.</p>
+                <h3>P95 vs mean estimate</h3>
+                <p>Tail-latency projection for the selected profile.</p>
               </div>
               <div class="bar-chart" data-chart="tail-latency"></div>
             </article>
             <article class="chart-card">
               <div>
-                <h3>Tokens/sec by hardware</h3>
-                <p>Throughput signal across hardware tiers.</p>
+                <h3>Estimated tokens/sec by hardware</h3>
+                <p>Throughput signal derived from each hardware baseline.</p>
               </div>
               <div class="bar-chart" data-chart="throughput"></div>
             </article>
