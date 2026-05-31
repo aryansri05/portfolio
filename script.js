@@ -155,6 +155,10 @@ function answerQuestion(question) {
     return "Limitations: this is an external RunPod/SGLang study, not Sarvam production performance. It used one H100 SXM, single concurrency, a 48-prompt short-context suite, client-side timing, and no hosted API comparison; concurrency, batching, and deeper TTFT/server-side profiling are planned.";
   }
 
+  if (hasAny(q, ["production gap", "production benchmark", "concurrency", "concurrent", "scheduler", "cuda graphs", "gpu profiling", "nsight", "itl", "queue time"])) {
+    return "Production gap: the current benchmark is a baseline external pilot with one H100, single concurrency, short prompts, external SGLang, and client-side timing. The next plan is a 1/2/4/8/16 concurrency sweep with TTFT, ITL, queue time, decode time, P95/P99, GPU utilization, memory, CUDA Graphs comparison, batching behavior, and SGLang/Nsight profiling.";
+  }
+
   if (hasAny(q, ["input token", "output token", "tokens matter", "token budget"])) {
     return "Input tokens affect prefill work and memory pressure; output tokens affect decode time and throughput. For Indian-language prompts, tokenizer expansion can change latency and cost, so Aryan tracked token counts alongside TTFT and total-latency behavior.";
   }

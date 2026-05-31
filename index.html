@@ -10,9 +10,9 @@
     <meta name="theme-color" content="#f8f9fb">
     <title>Aryan Srivastava | GPU Systems & AI Infrastructure</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=cost-estimate-label">
-    <script src="benchmark-data.js?v=cost-estimate-label" defer></script>
-    <script src="script.js?v=cost-estimate-label" defer></script>
+    <link rel="stylesheet" href="styles.css?v=production-gap">
+    <script src="benchmark-data.js?v=production-gap" defer></script>
+    <script src="script.js?v=production-gap" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -446,6 +446,90 @@
           </div>
         </article>
 
+        <article class="production-gap-card reveal">
+          <div class="production-gap-copy">
+            <p class="company">Production Gap Analysis</p>
+            <h3>What separates this pilot from production-style serving analysis.</h3>
+            <p>
+              This benchmark is intentionally presented as a baseline external pilot,
+              not a production benchmark. Its value is in establishing a reproducible
+              measurement framework and identifying the next production-relevant
+              experiments: concurrency, timing breakdown, CUDA Graphs, GPU profiling,
+              and longer-context workloads.
+            </p>
+          </div>
+
+          <div class="gap-analysis-grid">
+            <div class="gap-list-panel">
+              <h4>Current benchmark</h4>
+              <ul>
+                <li>Single H100 SXM</li>
+                <li>Single concurrency</li>
+                <li>Short prompts</li>
+                <li>External SGLang setup</li>
+                <li>Client-side timing</li>
+              </ul>
+            </div>
+            <div class="gap-list-panel">
+              <h4>Production benchmark would require</h4>
+              <ul>
+                <li>Concurrency sweep: 1, 2, 4, 8, 16 concurrent requests</li>
+                <li>TTFT / ITL / queue time / decode time breakdown</li>
+                <li>GPU utilization logs</li>
+                <li>Longer-context workloads</li>
+                <li>CUDA Graphs comparison</li>
+                <li>Batching and scheduler behavior</li>
+                <li>Server-side profiling with SGLang/Nsight</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="concurrency-plan">
+            <div class="concurrency-plan-copy">
+              <p class="eyebrow">Planned Concurrency Sweep</p>
+              <h4>Exact load plan for the next benchmark pass.</h4>
+            </div>
+            <div class="concurrency-table-wrap">
+              <table class="concurrency-table">
+                <thead>
+                  <tr>
+                    <th>Concurrency</th>
+                    <th>Metrics to track</th>
+                    <th>Purpose</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td data-label="Metrics to track">TTFT, latency, tokens/sec</td>
+                    <td data-label="Purpose">Baseline</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td data-label="Metrics to track">TTFT, P95, throughput</td>
+                    <td data-label="Purpose">Light parallel load</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td data-label="Metrics to track">Queue time, P95, GPU util</td>
+                    <td data-label="Purpose">Scheduler pressure</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td data-label="Metrics to track">P95/P99, failures, memory</td>
+                    <td data-label="Purpose">Tail latency behavior</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">16</th>
+                    <td data-label="Metrics to track">Saturation point</td>
+                    <td data-label="Purpose">Deployment capacity estimate</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </article>
+
         <article class="next-steps-card reveal">
           <div>
             <p class="company">Next Steps</p>
@@ -835,6 +919,7 @@
         <button type="button" data-question="Why do input and output tokens matter?">Tokens matter</button>
         <button type="button" data-question="What did Aryan measure?">Measurements</button>
         <button type="button" data-question="What are the limitations?">Limitations</button>
+        <button type="button" data-question="What is the production gap?">Production gap</button>
         <button type="button" data-question="How can Aryan help an AI infra team?">AI infra fit</button>
       </div>
       <form class="chat-form" data-chat-form>

@@ -67,6 +67,15 @@ LLM Inference Benchmarking | Sarvam 30B FP8:
   hardware comparison, and performance observations.
 - Analyzed deployment tradeoffs across high-end data center GPUs, budget GPUs,
   and consumer Apple Silicon environments.
+- Production gap analysis: current benchmark is a baseline external pilot with
+  one H100 SXM, single concurrency, short prompts, external SGLang setup, and
+  client-side timing. Production-style follow-up requires concurrency sweeps,
+  TTFT / ITL / queue time / decode time breakdown, GPU utilization logs,
+  longer-context workloads, CUDA Graphs comparison, batching/scheduler behavior,
+  and SGLang/Nsight profiling.
+- Planned concurrency sweep: 1 concurrent request for baseline TTFT, latency,
+  tokens/sec; 2 for light parallel load; 4 for queue time, P95, GPU utilization;
+  8 for P95/P99, failures, memory; 16 for saturation and deployment capacity.
 
 Preliminary Sarvam vs Qwen observation:
 
