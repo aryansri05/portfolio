@@ -10,9 +10,9 @@
     <meta name="theme-color" content="#f8f9fb">
     <title>Aryan Srivastava | GPU Systems & AI Infrastructure</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=csv-download">
-    <script src="benchmark-data.js?v=metric-provenance" defer></script>
-    <script src="script.js?v=metric-provenance" defer></script>
+    <link rel="stylesheet" href="styles.css?v=benchmark-clarity">
+    <script src="benchmark-data.js?v=benchmark-clarity" defer></script>
+    <script src="script.js?v=benchmark-clarity" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -91,11 +91,11 @@
             <p class="company">Featured Project</p>
             <h3>Sarvam 30B FP8 Inference Benchmarking</h3>
             <p>
-              Benchmarked Sarvam 30B FP8 on H100 SXM using 240 measured inference
-              requests across English, Hindi, Tamil, and Hinglish/code-mixed prompts.
-              Tracked tokenization behavior, mean latency, P90/P95 latency, and
+              Benchmarked the public Sarvam 30B FP8 checkpoint in an external
+              single-H100 SGLang streaming setup using 240 measured requests across
+              English, Hindi, Tamil, and Hinglish/code-mixed prompts. Tracked
+              median TTFT, total-latency distribution, tokenization behavior, and
               throughput to analyze serving performance and deployment tradeoffs.
-              Additional T4 and Apple M2 baselines are being expanded.
             </p>
             <div class="featured-actions">
               <a class="button button-primary" href="https://github.com/aryansri05/indicservebench" target="_blank" rel="noreferrer">
@@ -106,16 +106,20 @@
           </div>
           <div class="featured-stats" aria-label="Featured benchmark stats">
             <div>
-              <strong data-lab-stat="requestCount">240</strong>
-              <span>requests</span>
+              <strong>62-63 ms</strong>
+              <span>median TTFT</span>
             </div>
             <div>
-              <strong data-lab-stat="meanLatency">890 ms</strong>
-              <span>mean latency</span>
+              <strong>240</strong>
+              <span>measured Sarvam requests</span>
             </div>
             <div>
-              <strong data-lab-stat="tokensPerSecond">36.0</strong>
+              <strong>~36</strong>
               <span>tokens/sec</span>
+            </div>
+            <div>
+              <strong>Single H100</strong>
+              <span>exploratory pilot</span>
             </div>
           </div>
         </article>
@@ -144,7 +148,7 @@
             </div>
             <div>
               <dt>Metrics</dt>
-              <dd>Mean latency, P90/P95, tokens/sec, tokenization</dd>
+              <dd>Median TTFT, total latency, tokens/sec, tokenization</dd>
             </div>
             <div>
               <dt>Limitation</dt>
@@ -180,15 +184,15 @@
 
           <div class="lab-metrics" aria-label="Selected benchmark metrics">
             <article>
-              <span>Mean latency</span>
+              <span>Mean total latency</span>
               <strong data-metric="meanLatency">890 ms</strong>
             </article>
             <article>
-              <span>P90 latency</span>
+              <span>P90 total latency</span>
               <strong data-metric="p90Latency">897 ms</strong>
             </article>
             <article>
-              <span>P95 latency</span>
+              <span>P95 total latency</span>
               <strong data-metric="p95Latency">900 ms</strong>
             </article>
             <article>
@@ -252,7 +256,7 @@
             <article class="chart-card">
               <div>
                 <h3>Hardware comparison estimate</h3>
-                <p>Modeled mean latency at the selected token budget.</p>
+                <p>Modeled mean total latency at the selected token budget.</p>
               </div>
               <div class="bar-chart" data-chart="hardware-latency"></div>
             </article>
@@ -282,9 +286,9 @@
           <article class="language-latency-card">
             <div class="language-latency-header">
               <div>
-                <h3>Mean / P95 latency by language</h3>
+                <h3>Mean / P95 total latency by language</h3>
                 <p>
-                  Side-by-side language view for H100 SXM, T4, and Apple M2 benchmark coverage.
+                  Side-by-side total-latency view for H100 SXM, T4, and Apple M2 benchmark coverage.
                 </p>
               </div>
               <span class="source-tag">language summary</span>
@@ -535,9 +539,9 @@
               <span class="focus-index">02</span>
               <h3>LLM Inference Benchmarking</h3>
               <p>
-                Benchmarked Sarvam 30B FP8 on H100 SXM across English, Hindi,
-                Tamil, and Hinglish/code-mixed prompts, with T4 and Apple M2
-                baselines being expanded.
+                Benchmarked the public Sarvam 30B FP8 checkpoint in an external
+                single-H100 SGLang setup across English, Hindi, Tamil, and
+                Hinglish/code-mixed prompts.
               </p>
             </article>
 
@@ -572,7 +576,7 @@
                 <tr>
                   <td>NVIDIA H100 SXM</td>
                   <td>Data center</td>
-                  <td>Latency, P90/P95, throughput</td>
+                  <td>Median TTFT, total latency, throughput</td>
                 </tr>
                 <tr>
                   <td>NVIDIA T4</td>
@@ -700,14 +704,14 @@
             </div>
             <h3>LLM Inference Benchmarking | Sarvam 30B FP8</h3>
             <p>
-              Benchmarked Sarvam 30B FP8 on H100 SXM using 240 measured inference
-              requests across English, Hindi, Tamil, and Hinglish/code-mixed prompts.
-              Tracked tokenization behavior, mean latency, P90/P95 latency, and
-              throughput to analyze serving performance and deployment tradeoffs.
-              Additional T4 and Apple M2 baselines are being expanded.
+              Benchmarked the public Sarvam 30B FP8 checkpoint in an external
+              single-H100 SGLang streaming setup using 240 measured requests across
+              English, Hindi, Tamil, and Hinglish/code-mixed prompts. Tracked median
+              TTFT, total-latency distribution, tokenization behavior, and throughput.
             </p>
             <ul>
-              <li>Measured mean latency, P90/P95 latency, tokenization behavior, and throughput trends.</li>
+              <li>Measured 62-63 ms median TTFT and roughly 879-881 ms total latency across language groups.</li>
+              <li>Tracked tokenization behavior, total-latency distribution, and throughput trends.</li>
               <li>Built a reproducible GitHub benchmark setup with documented methodology.</li>
               <li>Analyzed deployment tradeoffs across data center GPUs, budget GPUs, and Apple Silicon.</li>
             </ul>

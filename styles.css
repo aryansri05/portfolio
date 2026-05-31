@@ -426,7 +426,7 @@ h4 {
 
 .featured-stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
 }
 
@@ -442,7 +442,7 @@ h4 {
 
 .featured-stats strong {
   margin-bottom: 4px;
-  font-size: 1.45rem;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
   line-height: 1;
 }
 

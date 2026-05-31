@@ -29,7 +29,7 @@ window.BENCHMARK_DATA = {
       label: "H100 SXM",
       shortLabel: "H100",
       model: "Sarvam 30B FP8",
-      source: "Measured: 240 successful Sarvam 30B FP8 requests, SGLang, single H100 SXM, single concurrency.",
+      source: "Measured: 240 successful Sarvam 30B FP8 requests, external SGLang setup, single H100 SXM, single concurrency.",
       dataQuality: "measured",
       measured: {
         requestCount: 240,
@@ -132,11 +132,11 @@ window.BENCHMARK_DATA = {
     {
       id: "latency",
       label: "Latency recorded",
-      detail: "Mean, P90, P95, tokens/sec, and bottleneck notes are logged."
+      detail: "Median TTFT, total latency, tokens/sec, and bottleneck notes are logged."
     }
   ],
   languageLatency: {
-    note: "H100 mean/P95 total latency is computed from 240 measured raw JSONL requests across five passes; P95 uses the same interpolated percentile convention as the summary analysis. T4 source exposes median and P95 language aggregates, so median is shown as the central-latency proxy until raw request data is added. M2 rows are placeholders from the local benchmark script until exported M2 results are available.",
+    note: "H100 median TTFT and mean/P95 total latency are computed from 240 measured raw JSONL requests across five passes; P95 uses the same interpolated percentile convention as the summary analysis. T4 source exposes median and P95 total-latency language aggregates, so median is shown as the central-latency proxy until raw request data is added. M2 rows are placeholders from the local benchmark script until exported M2 results are available.",
     languages: [
       {
         id: "en",

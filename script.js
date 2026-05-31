@@ -46,7 +46,7 @@ const ARYAN_DATA_FALLBACK = {
       status: "Benchmarking project",
       url: "https://github.com/aryansri05/indicservebench",
       summary:
-        "Benchmarked Sarvam 30B FP8 on H100 SXM using 240 measured inference requests across English, Hindi, Tamil, and Hinglish/code-mixed prompts. Tracked tokenization behavior, mean latency, P90/P95 latency, and throughput to analyze serving performance and deployment tradeoffs. Additional T4 and Apple M2 baselines are being expanded."
+        "Benchmarked the public Sarvam 30B FP8 checkpoint in an external single-H100 SGLang streaming setup using 240 measured requests across English, Hindi, Tamil, and Hinglish/code-mixed prompts. Tracked median TTFT, total-latency distribution, tokenization behavior, and throughput to analyze serving performance and deployment tradeoffs."
     },
     {
       name: "Paper Trading Platform",
@@ -156,7 +156,7 @@ function answerQuestion(question) {
   }
 
   if (hasAny(q, ["input token", "output token", "tokens matter", "token budget"])) {
-    return "Input tokens affect prefill work and memory pressure; output tokens affect decode time and throughput. For Indian-language prompts, tokenizer expansion can change latency and cost, so Aryan tracked token counts alongside mean and P95 latency.";
+    return "Input tokens affect prefill work and memory pressure; output tokens affect decode time and throughput. For Indian-language prompts, tokenizer expansion can change latency and cost, so Aryan tracked token counts alongside TTFT and total-latency behavior.";
   }
 
   if (hasAny(q, ["ai infra team", "infra team", "help team", "fit for ai infra", "ai infrastructure team"])) {
@@ -169,15 +169,15 @@ function answerQuestion(question) {
 
   if (hasAny(q, ["benchmark", "sarvam", "inference", "h100", "t4", "m2", "indicservebench", "latency", "throughput", "tokenizer", "measure", "measured", "metrics"])) {
     if (hasAny(q, ["language", "hindi", "tamil", "english", "hinglish", "codemix", "code mixed", "p95"])) {
-      return "Language summary: H100 has measured mean/P95 total latency for English, Hindi, Tamil, and Hinglish across 240 requests. T4 has Hindi, Tamil, and code-mixed median/P95 aggregates. M2 is shown as a placeholder until exported language results are added.";
+      return "Language summary: H100 has measured 62-63 ms median TTFT and mean/P95 total latency for English, Hindi, Tamil, and Hinglish across 240 requests. T4 has Hindi, Tamil, and code-mixed median/P95 total-latency aggregates. M2 is shown as a placeholder until exported language results are added.";
     }
 
     if (hasAny(q, ["explain", "what is this", "overview"])) {
-      return "This benchmark evaluates Sarvam 30B FP8 inference on H100 SXM using 240 measured requests across English, Hindi, Tamil, and Hinglish/code-mixed prompts. It tracks tokenization, mean latency, P90/P95 latency, and throughput to understand serving tradeoffs.";
+      return "This benchmark evaluates the public Sarvam 30B FP8 checkpoint in an external single-H100 SGLang streaming setup using 240 measured requests across English, Hindi, Tamil, and Hinglish/code-mixed prompts. It tracks median TTFT, total-latency distribution, tokenization, and throughput.";
     }
 
     if (hasAny(q, ["what did", "measure", "measured", "metrics"])) {
-      return "Aryan measured formatted input tokens, output tokens, mean latency, P90/P95 latency, throughput, TTFT, tokenizer behavior, and hardware deployment tradeoffs.";
+      return "Aryan measured formatted input tokens, output tokens, median TTFT, total latency, throughput, tokenizer behavior, and hardware deployment tradeoffs.";
     }
 
     if (hasAny(q, ["repo", "github", "code", "indicservebench"])) {
@@ -188,7 +188,7 @@ function answerQuestion(question) {
       return "H100 SXM is the strongest serving target because it has far more memory bandwidth, compute headroom, and FP8-oriented data-center capability than T4 or Apple M2. T4 is budget-constrained; M2 is useful as a local baseline.";
     }
 
-    return "Aryan benchmarked Sarvam 30B FP8 on H100 SXM using 240 measured inference requests across English, Hindi, Tamil, and Hinglish/code-mixed prompts. He tracked tokenization behavior, mean latency, P90/P95 latency, and throughput; T4 and Apple M2 baselines are being expanded. Repo: https://github.com/aryansri05/indicservebench.";
+    return "Aryan benchmarked the public Sarvam 30B FP8 checkpoint in an external single-H100 SGLang streaming setup using 240 measured requests across English, Hindi, Tamil, and Hinglish/code-mixed prompts. He tracked 62-63 ms median TTFT, roughly 879-881 ms total latency by language, tokenization behavior, and throughput. Repo: https://github.com/aryansri05/indicservebench.";
   }
 
   if (hasAny(q, ["nvidia", "rapids", "cudf", "polars", "open source", "opensource", "contribution", "pr", "pull request"])) {
@@ -414,7 +414,7 @@ function renderLanguageLatency(container, noteNode, languageLatency) {
       return `<td data-hardware="${hardwareLabel}"><div class="language-empty">No run yet</div></td>`;
     }
 
-    const centralLabel = entry.centralLabel === "median" ? "Median proxy" : "Mean latency";
+    const centralLabel = entry.centralLabel === "median" ? "Median total latency proxy" : "Mean total latency";
 
     return `
       <td data-hardware="${hardwareLabel}">
@@ -424,7 +424,7 @@ function renderLanguageLatency(container, noteNode, languageLatency) {
             <strong>${formatMs(entry.meanLatencyMs)}</strong>
           </div>
           <div>
-            <span>P95 latency</span>
+            <span>P95 total latency</span>
             <strong>${formatMs(entry.p95LatencyMs)}</strong>
           </div>
           <em>${entry.n} req · ${entry.quality}</em>
@@ -543,10 +543,6 @@ function initInferenceLab() {
     inputValue.textContent = state.inputTokens;
     outputValue.textContent = state.outputTokens;
     updateActiveButtons();
-
-    document.querySelector('[data-lab-stat="requestCount"]').textContent = hardware.measured.requestCount.toLocaleString();
-    document.querySelector('[data-lab-stat="meanLatency"]').textContent = formatMs(metrics.meanLatencyMs);
-    document.querySelector('[data-lab-stat="tokensPerSecond"]').textContent = formatTps(metrics.tokensPerSecond);
 
     setMetric("meanLatency", formatMs(metrics.meanLatencyMs));
     setMetric("p90Latency", formatMs(metrics.p90LatencyMs));

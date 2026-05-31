@@ -41,7 +41,7 @@ GPU Systems Focus:
 - RAPIDS cuDF internals: GPU dataframe behavior, Python/C++ interop, row-mask
   APIs, null handling, and regression coverage in production C++/Python
   codepaths.
-- LLM inference benchmarking: Sarvam 30B FP8 on H100 SXM with T4 and Apple M2 baselines being expanded.
+- LLM inference benchmarking: public Sarvam 30B FP8 checkpoint in an external single-H100 SGLang setup, with T4 and Apple M2 baselines being expanded.
 - Memory-safe systems work: Rust allocation-provenance fix in Polars.
 
 MAHE Mobility Challenge 2026:
@@ -57,10 +57,11 @@ MAHE Mobility Challenge 2026:
 LLM Inference Benchmarking | Sarvam 30B FP8:
 
 - Repo: https://github.com/aryansri05/indicservebench
-- Benchmarked Sarvam 30B FP8 on H100 SXM using 240 measured inference requests
-  across English, Hindi, Tamil, and Hinglish/code-mixed prompts.
-- Tracked tokenization behavior, mean latency, P90/P95 latency, and throughput
-  to analyze serving performance and deployment tradeoffs.
+- Benchmarked the public Sarvam 30B FP8 checkpoint in an external single-H100
+  SGLang streaming setup using 240 measured requests across English, Hindi,
+  Tamil, and Hinglish/code-mixed prompts.
+- Tracked 62-63 ms median TTFT, total-latency distribution, tokenization
+  behavior, and throughput to analyze serving performance and deployment tradeoffs.
 - Additional T4 and Apple M2 baselines are being expanded.
 - Built a reproducible GitHub benchmark setup with documented methodology,
   hardware comparison, and performance observations.
