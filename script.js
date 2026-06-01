@@ -19,6 +19,7 @@ const ARYAN_DATA_FALLBACK = {
       project: "cuDF",
       status: "Merged",
       items: [
+        "PR #22701: DataFrame Mask Series Condition Alignment; fixed DataFrame.mask / DataFrame.where alignment for Series conditions with non-default indexes, preserving Series index behavior and adding regression coverage matching Pandas semantics.",
         "PR #20747: Boolean Casting Consistency Fix; fixed behavioral inconsistency between cuDF and Pandas, modified Python/C++ interop logic, and added regression tests.",
         "PR #20862: Hybrid Scan API; added a libcudf C++ API for all-true row masks with memory-safe null handling and unit tests."
       ]
@@ -64,7 +65,7 @@ const ARYAN_DATA_FALLBACK = {
   },
   achievements: [
     "1st Place, MAHE Mobility Challenge 2026, AI Track",
-    "5 total merged open-source PRs",
+    "6 total merged open-source PRs",
     "Merged Rust memory-safety fix in Polars",
     "Experience navigating large C++/Python production codebases"
   ],

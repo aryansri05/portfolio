@@ -20,6 +20,11 @@ Do not disclose Aryan's phone number.
 
 NVIDIA RAPIDS cuDF:
 
+- PR #22701: DataFrame Mask Series Condition Alignment, merged.
+- Fixed DataFrame.mask / DataFrame.where alignment for Series conditions with
+  non-default indexes.
+- Preserved Series index behavior and added regression coverage matching Pandas
+  semantics.
 - PR #20747: Boolean Casting Consistency Fix, merged.
 - Fixed behavioral inconsistency between cuDF and Pandas.
 - Modified Python/C++ interop logic and added regression tests.
@@ -129,7 +134,7 @@ Paper Trading Platform:
 ## Achievements
 
 - 1st Place, MAHE Mobility Challenge 2026, AI Track
-- 5 total merged open-source PRs
+- 6 total merged open-source PRs
 - Merged Rust memory-safety fix in Polars
 - Experience navigating large C++/Python production codebases
 

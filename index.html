@@ -10,9 +10,9 @@
     <meta name="theme-color" content="#f8f9fb">
     <title>Aryan Srivastava | GPU Systems & AI Infrastructure</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=production-gap">
-    <script src="benchmark-data.js?v=production-gap" defer></script>
-    <script src="script.js?v=production-gap" defer></script>
+    <link rel="stylesheet" href="styles.css?v=rapids-22701">
+    <script src="benchmark-data.js?v=rapids-22701" defer></script>
+    <script src="script.js?v=rapids-22701" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -714,7 +714,23 @@
               <div class="timeline-item">
                 <span class="timeline-marker"></span>
                 <div>
-                  <h4>PR #20747: Boolean Casting Consistency Fix</h4>
+                  <h4>
+                    <a href="https://github.com/rapidsai/cudf/pull/22701" target="_blank" rel="noreferrer">
+                      PR #22701: DataFrame Mask Series Condition Alignment
+                    </a>
+                  </h4>
+                  <p>Fixed DataFrame.mask / DataFrame.where alignment for Series conditions with non-default indexes.</p>
+                  <p>Preserved Series index behavior and added regression coverage matching Pandas semantics.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-marker"></span>
+                <div>
+                  <h4>
+                    <a href="https://github.com/rapidsai/cudf/pull/20747" target="_blank" rel="noreferrer">
+                      PR #20747: Boolean Casting Consistency Fix
+                    </a>
+                  </h4>
                   <p>Fixed behavioral inconsistency between cuDF and Pandas.</p>
                   <p>Modified Python/C++ interop logic and added regression tests.</p>
                 </div>
@@ -722,7 +738,11 @@
               <div class="timeline-item">
                 <span class="timeline-marker"></span>
                 <div>
-                  <h4>PR #20862: Hybrid Scan API</h4>
+                  <h4>
+                    <a href="https://github.com/rapidsai/cudf/pull/20862" target="_blank" rel="noreferrer">
+                      PR #20862: Hybrid Scan API
+                    </a>
+                  </h4>
                   <p>Added a hybrid scan API in libcudf C++ for all-true row masks.</p>
                   <p>Implemented memory-safe null handling and unit tests.</p>
                 </div>
@@ -861,7 +881,7 @@
           <p class="eyebrow">Achievements</p>
           <ul class="achievement-list">
             <li>1st Place, MAHE Mobility Challenge 2026, AI Track</li>
-            <li>5 total merged open-source PRs</li>
+            <li>6 total merged open-source PRs</li>
             <li>Merged Rust memory-safety fix in Polars</li>
             <li>Experience navigating large C++/Python production codebases</li>
           </ul>
