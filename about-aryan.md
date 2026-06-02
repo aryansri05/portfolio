@@ -20,6 +20,10 @@ Do not disclose Aryan's phone number.
 
 NVIDIA RAPIDS cuDF:
 
+- PR #22621: to_numpy Object Null Handling, merged.
+- Fixed object dtype null handling for DataFrame.to_numpy and Series.to_numpy.
+- Preserved None values for explicit object dtype while keeping default null
+  behavior intact.
 - PR #22701: DataFrame Mask Series Condition Alignment, merged.
 - Fixed DataFrame.mask / DataFrame.where alignment for Series conditions with
   non-default indexes.
@@ -134,7 +138,7 @@ Paper Trading Platform:
 ## Achievements
 
 - 1st Place, MAHE Mobility Challenge 2026, AI Track
-- 6 total merged open-source PRs
+- 7 total merged open-source PRs
 - Merged Rust memory-safety fix in Polars
 - Experience navigating large C++/Python production codebases
 

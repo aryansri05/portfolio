@@ -10,9 +10,9 @@
     <meta name="theme-color" content="#f8f9fb">
     <title>Aryan Srivastava | GPU Systems & AI Infrastructure</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=rapids-22701">
-    <script src="benchmark-data.js?v=rapids-22701" defer></script>
-    <script src="script.js?v=rapids-22701" defer></script>
+    <link rel="stylesheet" href="styles.css?v=rapids-22621">
+    <script src="benchmark-data.js?v=rapids-22621" defer></script>
+    <script src="script.js?v=rapids-22621" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -715,6 +715,18 @@
                 <span class="timeline-marker"></span>
                 <div>
                   <h4>
+                    <a href="https://github.com/rapidsai/cudf/pull/22621" target="_blank" rel="noreferrer">
+                      PR #22621: to_numpy Object Null Handling
+                    </a>
+                  </h4>
+                  <p>Fixed object dtype null handling for DataFrame.to_numpy and Series.to_numpy.</p>
+                  <p>Preserved None values for explicit object dtype while keeping default null behavior intact.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-marker"></span>
+                <div>
+                  <h4>
                     <a href="https://github.com/rapidsai/cudf/pull/22701" target="_blank" rel="noreferrer">
                       PR #22701: DataFrame Mask Series Condition Alignment
                     </a>
@@ -881,7 +893,7 @@
           <p class="eyebrow">Achievements</p>
           <ul class="achievement-list">
             <li>1st Place, MAHE Mobility Challenge 2026, AI Track</li>
-            <li>6 total merged open-source PRs</li>
+            <li>7 total merged open-source PRs</li>
             <li>Merged Rust memory-safety fix in Polars</li>
             <li>Experience navigating large C++/Python production codebases</li>
           </ul>
