@@ -10,9 +10,9 @@
     <meta name="theme-color" content="#f8f9fb">
     <title>Aryan Srivastava | GPU Systems & AI Infrastructure</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=rapids-22621">
-    <script src="benchmark-data.js?v=rapids-22621" defer></script>
-    <script src="script.js?v=rapids-22621" defer></script>
+    <link rel="stylesheet" href="styles.css?v=formatted-input-label">
+    <script src="benchmark-data.js?v=formatted-input-label" defer></script>
+    <script src="script.js?v=formatted-input-label" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -171,9 +171,9 @@
 
           <div class="token-controls">
             <label>
-              <span>Input tokens</span>
+              <span>Formatted input tokens</span>
               <input type="range" min="16" max="160" step="1" value="67" data-input-tokens>
-              <strong data-input-token-value>67</strong>
+              <strong data-input-token-value>~67</strong>
             </label>
             <label>
               <span>Output tokens</span>
@@ -227,7 +227,7 @@
             </article>
             <article>
               <span>Token budget</span>
-              <strong data-context="tokens">67 in / 32 out</strong>
+              <strong data-context="tokens">~67 formatted input / 32 output</strong>
             </article>
             <article>
               <span>Tokenizer behavior</span>
@@ -580,8 +580,8 @@
                 <strong data-replay="step">Prompt received</strong>
               </div>
               <div>
-                <span>Input tokens</span>
-                <strong data-replay="inputTokens">67</strong>
+                <span>Formatted input tokens</span>
+                <strong data-replay="inputTokens">~67</strong>
               </div>
               <div>
                 <span>Output tokens</span>

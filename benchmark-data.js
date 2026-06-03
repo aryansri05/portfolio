@@ -13,7 +13,7 @@ window.BENCHMARK_DATA = {
       label: "Measured",
       inputTokens: 67,
       outputTokens: 32,
-      note: "Closest to the H100 Sarvam 30B FP8 run"
+      note: "Closest to the H100 run: ~67 formatted input tokens, 32 output tokens"
     },
     {
       id: "long",

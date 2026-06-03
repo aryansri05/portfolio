@@ -162,7 +162,7 @@ function answerQuestion(question) {
   }
 
   if (hasAny(q, ["input token", "output token", "tokens matter", "token budget"])) {
-    return "Input tokens affect prefill work and memory pressure; output tokens affect decode time and throughput. For Indian-language prompts, tokenizer expansion can change latency and cost, so Aryan tracked token counts alongside TTFT and total-latency behavior.";
+    return "The dashboard's input-token number refers to formatted input tokens after the chat/template wrapper, not just raw prompt tokens. Raw Sarvam prompts were roughly 14-18 tokens, while formatted inputs were roughly 60-70 tokens; these affect prefill work, memory pressure, latency, and cost.";
   }
 
   if (hasAny(q, ["ai infra team", "infra team", "help team", "fit for ai infra", "ai infrastructure team"])) {
@@ -530,7 +530,7 @@ function initInferenceLab() {
     }
     document.querySelector('[data-replay="hardware"]').textContent = hardware.label;
     document.querySelector('[data-replay="step"]').textContent = currentStep.label;
-    document.querySelector('[data-replay="inputTokens"]').textContent = state.inputTokens;
+    document.querySelector('[data-replay="inputTokens"]').textContent = `~${state.inputTokens}`;
     document.querySelector('[data-replay="outputTokens"]').textContent = state.outputTokens;
     document.querySelector('[data-replay="latency"]').textContent = formatMs(metrics.meanLatencyMs);
     document.querySelector('[data-replay="bottleneck"]').textContent = hardware.bottleneck;
@@ -546,7 +546,7 @@ function initInferenceLab() {
 
     inputRange.value = state.inputTokens;
     outputRange.value = state.outputTokens;
-    inputValue.textContent = state.inputTokens;
+    inputValue.textContent = `~${state.inputTokens}`;
     outputValue.textContent = state.outputTokens;
     updateActiveButtons();
 
@@ -556,7 +556,7 @@ function initInferenceLab() {
     setMetric("tokensPerSecond", formatTps(metrics.tokensPerSecond));
     setMetric("costPerMillion", formatUsd(metrics.costPerMillion));
     setContext("hardware", hardware.label);
-    setContext("tokens", `${state.inputTokens} in / ${state.outputTokens} out`);
+    setContext("tokens", `~${state.inputTokens} formatted input / ${state.outputTokens} output`);
     setContext(
       "tokenizer",
       hardware.id === "h100"
@@ -596,7 +596,7 @@ function initInferenceLab() {
       state.outputTokens === hardware.measured.outputTokens &&
       hardware.dataQuality === "measured";
     const profileLabel = isMeasuredBaseline ? "Measured baseline" : "Modeled selected profile";
-    note.textContent = `${hardware.source} ${profileLabel}: ${state.inputTokens} input tokens, ${state.outputTokens} output tokens. Slider-based values are estimates from baseline latency and throughput, not direct raw measurements at every token budget.`;
+    note.textContent = `${hardware.source} ${profileLabel}: ~${state.inputTokens} formatted input tokens, ${state.outputTokens} output tokens. Slider-based values are estimates from baseline latency and throughput, not direct raw measurements at every token budget.`;
     state.replayIndex = Math.min(state.replayIndex, data.replaySteps.length - 1);
     updateReplay();
   };
